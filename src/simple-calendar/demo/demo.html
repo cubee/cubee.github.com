@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="zh">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="简单的HTML页面" />
+	<meta name="Description" content="这是一个简单的HTML页面" />
+	<title>简单的HTML页面</title>
+	<script charset="utf-8" type="text/javascript" src="http://a.tbcdn.cn/yui/3.0.0/build/yui/yui-min.js"></script>
+<style>
+	body { font: 14px Georgia,"Times New Roman",Times,sans-serif; color: #444; }
+	h1 { font-size: 26px; color: #00859D; font-family: Constantia,serif; }
+	h3 { font-size: 14px; color: #555; margin: 15px 0 5px; }
+	code {font-family:"Courier New"}
+</style>
+</head>
+<body  class="yui-skin-sam">
+<h1>基于YUI3的简单日历组件</h1>
+<p>简单日历，默认显示今天</p>
+<input type=text value="click here" id="c1"></input>
+<hr />
+<p>乳颤特效，默认显示某天</p>
+<input type=text value="click here" id="c2"></input>
+<hr />
+<h3>API</h3>
+<code><pre>
+new Y.Scalendar(node,callback,options);
+node:		要触发事件的node对象
+callback:	选择日期的回调函数，参数为选择的日期
+options:	配置项
+		date:当前显示的日期所在的面板，字符串(yyyy/mm/dd)or Date类型
+		selectedate:当前选择的日期，字符串(yyyy/mm/dd) or Date类型
+		easing:展开的动画效果，默认为Y.Easing.elasticOut
+		duration:展开的速度，默认为0.9
+		closeable:选择日期后是否关闭,默认为true
+
+接口:		render(o):渲染，o为options
+		hide():关闭
+		show():打开
+		monthAdd():显示下一月
+		monthMinus():显示前一月
+		init():构造函数，new的时候调用，一般用不着
+		...
+</pre></code>
+<h3>note</h3>
+<p>author:bachi@taobao.com 拔赤</p>
+</body>
+<script>
+<!--
+YUI({
+	modules:{
+		 'simple-calendar':{
+			 fullpath:'../simple-calendar.js',
+			 requires:['node','anim','calendar-skin']
+		 },
+		 'calendar-skin':{
+			 fullpath:'../assets/skin.css',
+			 type:'css'
+		 }
+	}
+}).use('simple-calendar','console','dump',function(Y){
+	new Y.Console().render();
+
+	//简单日历
+	 var c1 = new Y.Scalendar(Y.Node.get('#c1'),function(d){
+		 Y.log(Y.dump(d));
+		 Y.Node.get('#c1').set('value',Y.dump(d));
+		 c1.render({selectedate:d});
+	 },{
+		date: new Date(), //默认显示当天
+		easing:Y.Easing.easeOut,
+		duration:0.4
+	 });
+
+	//简单日历的特效
+	 var c2  = new Y.Scalendar(Y.Node.get('#c2'),function(d){
+		 Y.log(Y.dump(d));
+		 Y.Node.get('#c2').set('value',Y.dump(d));
+		 c2.render({selectedate:d});
+	 },{
+		date:'2009/11/02' 
+	 });
+});
+
+//-->
+</script>
+
+</html>

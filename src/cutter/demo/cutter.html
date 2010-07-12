@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>cutter</title>
+	<link rel="stylesheet" type="text/css" href="../../../build/css/font.css">
+	<script type="text/javascript" src="http://cn.yimg.com/i/yui/3.0.0/build/yui/yui-min.js"></script>
+	
+
+</head>
+<body>
+
+<style>
+code {font-family:'Courier New'}
+</style>
+
+<div id="doc-w"> 
+	<div id="bd">
+		<div class="grid"> </div>
+		<div class="grid"> 鼠标移动到图片上...</div>
+		<div class="grid"> 
+			<!---{{ 正文 -->
+				<div class="mybox">
+					<!--item {{ -->
+					<div class="cutter-mojo">
+						<img src="../assets/1.jpg" /><!--默认图片-->
+						<div class="cutter-content"> 
+							<!--自定义内容{{-->
+							<p>content</p>
+							<span>
+								text info
+							</span>
+							<!--自定义内容}}-->
+						</div>
+					</div>
+					<!--item }} -->
+					<!--item {{ -->
+					<div class="cutter-mojo">
+						<img src="../assets/2.jpg" /><!--默认图片-->
+						<div class="cutter-content"> 
+							<!--自定义内容{{-->
+							<p>content</p>
+							<span>
+								text info
+							</span>
+							<!--自定义内容}}-->
+						</div>
+					</div>
+					<!--item }} -->
+					
+				</div>
+				<script>
+				<!--
+				YUI({
+					modules:{
+						'cutter':{
+							fullpath:'../cutter.js',
+							requires:['node','anim','cutter-skin']
+						},
+						'cutter-skin':{
+							fullpath:'../assets/skin.css',
+							type:'css'
+						}
+					}
+				}).use('cutter',function(Y){
+					var cons = Y.all('.mybox .cutter-mojo');
+					cons.each(function(node){
+						new Y.Cutter(node);
+					});
+
+				});
+				//-->
+				</script>
+			<!---}} 正文 -->
+		</div>
+		<div class="grid">
+			<div>
+<pre><code>
+USEAGE:
+	new Y.Cutter(node,options);
+API:
+	node:	Y.Node对象
+	options:
+		out_speed:移出速度，默认为0.3
+		in_speed:移入速度，默认为0.5
+Author:bachi@taobao.com 拔赤
+ie6-8,firefox3,chrome,safari,opera下测试通过
+
+
+</code></pre>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+.t-corner-all {
+-moz-border-radius:3px;
+-khtml-border-radius: 3px;
+-webkit-border-radius: 3px;
+}
+.t-calendar {background-color:white;position:absolute;width:187px;height:auto;padding:2px 2px 2px 2px;margin:1px;display:block;border:1px solid #DDDDDD;font-size:10px;font-family:Helvetica,Arial,sans-serif;}
+.t-calendar .hd {position:relative;line-height:20px;text-align:center;width:100%;height:20px;padding:2px 0px;background:#DDDDDD url(ui-hd-bg.png) repeat-x scroll 50% 50%}
+.t-calendar .hd a {cursor:pointer;width:19px;height:18px;background:url('ui-fk.png') no-repeat;position:absolute;}
+.t-calendar .hd b.hdtxt {color:#444;font-weight:bold;font-size:11px;}
+.t-calendar .hd a:hover{background:url('ui-fk-hover.png') no-repeat;background-color:dodgerblue;border:1px solid dodgerblue;}
+.t-calendar .hd a.prev {top:2px;left:2px;background-position:-78px -191px;}
+.t-calendar .hd a.next {top:2px;right:2px;background-position:-47px -191px;}
+.t-calendar .hd a.prev:hover {_background-position:-78px -191px;}
+.t-calendar .hd a.next:hover {_background-position:-47px -191px;}
+
+.t-calendar .bd {margin-top:7px;width:187px;}
+.t-calendar .bd span {width:24px;height:16px;display:inline-block;text-align:right;margin:1px 0 1px 1px ;line-height:18px;padding-right:1px;text-decoration:none;}
+.t-calendar .ft {margin-top:4px;margin-left:3px;width:187px;}
+.t-calendar .ft a {width:22px;height:17px;display:inline-block;text-align:right;border:1px solid #ccc;margin:1px 0 1px 1px ;line-height:18px;padding-right:1px;text-decoration:none;color:#0073ea;background:#F6F6F6;}
+.t-calendar .ft a:hover {background-color:#0073ea;border:1px solid #1C94C4;color:white;}
+.t-calendar .ft a.today{background-color:dodgerblue;border:1px solid #1C94C4;color:white;}
+.t-calendar .ft a.selected {background-color:white;border:1px solid #dddddd;color:#FF0084;}
+.t-calendar .ft a.null {color:white;background:white;border:white 1px solid;cursor:default;}
+.t-calendar .ft a.null:hover {_color:white;_background:white;_border:white 1px solid;_cursor:default;}

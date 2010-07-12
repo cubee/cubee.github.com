@@ -1,0 +1,4 @@
+.t-ticker {font-size:12px;line-height:12px;vertical-align:middle;}
+.t-ticker .ticontent {height:12px;}
+.t-ticker .arrow {width:10px;height:11px;cursor:pointer;position:relative;vertical-align:middle;}
+.t-ticker .cursor {margin-left:-2px;}

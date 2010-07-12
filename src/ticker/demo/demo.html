@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>ticker</title>
+	<link rel="stylesheet" type="text/css" href="../../../build/css/font.css">
+	<script type="text/javascript" src="http://cn.yimg.com/i/yui/3.0.0/build/yui/yui-min.js"></script>
+	
+
+</head>
+<body>
+<h1>Ticker</h1>
+<h3>Ticker</h3>
+
+<style>
+	body { font: 14px Georgia,"Times New Roman",Times,sans-serif; color: #444; }
+	h1 { font-size: 26px; color: #00859D; font-family: Constantia,serif; }
+	h3 { font-size: 14px; color: #555; margin: 15px 0 5px; }
+	code {font-family:"Courier New"}
+
+#J_ticker {margin:20px;}
+a {text-decoration:underline;}
+</style>
+<div id="J_ticker" class="t-ticker">
+	<span class="datetime">2001-12-12</span>
+	<img class="arrow back" src="../assets/back.gif" />
+	<img class="arrow next" src="../assets/next.gif" />
+	<a class="ticontent" href="#"></a>
+	<span class="cursor"><img src="../assets/tickerCursor0.gif" /></span>
+</div>
+
+
+<pre><code>
+new Y.Ticker(id,config);
+config:
+	data:Array,要显示的数据
+	timeout:时间间隔
+	speed:显示速度
+author:拔赤
+</code></pre>
+
+
+<script>
+
+YUI({
+	combine:true,
+	modules:{
+		'ticker-skin':{//默认皮肤
+			fullpath:'../assets/skin.css',
+			type:'css'
+		},
+		'ticker':{
+			fullpath:'../ticker.js',
+			requires:['ticker-skin','node']
+		}
+	}
+}).use('ticker',function(Y){
+
+	new Y.Ticker('J_ticker',{
+		speed:80,
+		data:[
+			['灰熊双塔完爆湖人内线 科比压哨三分力挺卫冕冠军','url'],
+			['ESPN实力榜：骑士湖人掘金前三 火箭终于止跌回升','url'],
+			['斯科拉专访：火箭不是小菜一碟 黑豆应入选全明星','url'],
+			['阿泰微博客：健身小贴士 如何拥有运动员般体魄','url'],
+			['海耶斯:寄希望客场弥补糟糕战绩 阿帅已然做得很好','url']
+		]
+	});
+	
+
+});
+</script>
+
+</body>
+
+</html>

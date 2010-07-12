@@ -1,0 +1,5 @@
+.cutter-mojo {width:200px;height:160px;overflow:hidden;position:relative;background:#FFFDF2;cursor:pointer;margin-bottom:10px;}
+.cutter-mojo .cutter-content{position:absolute;left:0;top:0;width:100%;height:100%;}
+.cutter-mojo .cutter-content p {background:#F2EDDF;color:#E41170;display:block;font-size:12px;font-weight:bold;margin:0;padding:6px 5px 6px 8px;text-decoration:underline;}
+.cutter-mojo .cutter-content span {color:#333333;display:block;font-size:90%;line-height:16px;padding:7px;z-index:0;}
+.cutter-mojo img {position:absolute;width:100%;height:100%;z-index:1;}
