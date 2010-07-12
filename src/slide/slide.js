@@ -202,7 +202,6 @@ YUI.add('slide',function(Y){
 				that.pannels = con.queryAll('.'+that.contentClass+' div.'+that.pannelClass);
 			}
 			var first_node = that.pannels.item(0);
-			Y.log(first_node)
 			that.animwrap.appendChild(first_node);
 			//first_node.remove();
 			if(that.effect == 'v-slide'){ //垂直
@@ -223,7 +222,7 @@ YUI.add('slide',function(Y){
 			}
 			var last_node = that.pannels.item(that.pannels.size()-1);
 			var first_node = that.pannels.item(0);
-			Y.Node.insertBefore(last_node,first_node);
+			that.animwrap.prepend(last_node);
 			//first_node.remove();
 			if(that.effect == 'v-slide'){ //垂直
 				var top = that.animwrap.getStyle('top').replace(/[^\d]/ig,'');
