@@ -100,6 +100,7 @@ new Y.Slide('J_tab_1',{
 	<a class="button" href="../src/slide/demo/tb-slide-fade.html">fade-effect DEMO</a>
 	<a class="button" href="../src/slide/demo/tb-slide-v-scroll.html">v-slide DEMO</a>
 	<a class="button" href="../src/slide/demo/tb-slide-scroll.html">h-slide DEMO</a>
+	<a class="button" href="../src/slide/demo/tb-carousel.html">carsousel DEMO</a>
 </div>
 <div class="dec">
 <p>娱乐首页的slide(垂直滚动)\频道区块的slide模块</p>
@@ -134,6 +135,7 @@ new Y.Slide('J_tab_1',{
 				<p><b>id</b>:{string} hook</p>
 				<p><b>before_switch</b>:{function} 切换之前执行的动作，参数同switch事件的参数，返回true，继续执行，返回false，停止执行</p>
 				<p><b>ready</b>:{function} 初始化完成后的回调，参数同switch事件的参数，当前index为0</p>
+				<p><b>carousel</b>:{boolean} 是否以旋转木马形式播放，默认为false</p>
 				</dd>
 		</dl>
 		
