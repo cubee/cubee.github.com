@@ -147,6 +147,7 @@ YUI.add('slide',function(Y){
 			that.pannelClass = (typeof o.pannelClass == 'undefined' || o.pannelClass == null)?'tab-pannel':o.pannelClass;
 			that.before_switch = (typeof o.before_switch== 'undefined' || o.before_switch == null)?new Function:o.before_switch;
 			that.ready = (typeof o.ready == 'undefined' || o.ready == null)?new Function:o.ready;
+			that.carousel = (typeof o.carousel == 'undefined' || o.carousel == null)?false:o.carousel;
 			that.id = that.id;
 			//构造参数
 			that.tabs = [];
@@ -166,6 +167,13 @@ YUI.add('slide',function(Y){
 			if(_index >= that.length){
 				_index = _index % that.length;
 			}
+			if(that.carousel){
+				if((_index%that.length) == (that.length-1) && that.current_tab == 0){
+					that.fix_pre_carousel();
+					arguments.callee.call(that);
+					return this;
+				}
+			}
 			that.goto(_index);
 			return this;
 		},
@@ -176,8 +184,55 @@ YUI.add('slide',function(Y){
 			if(_index >= that.length){
 				_index = _index % that.length;
 			}
+			if(that.carousel){
+				if((_index%that.length) == 0 && that.current_tab == (that.length-1)){
+					that.fix_next_carousel();
+					arguments.callee.call(that);
+					return this;
+				}
+			}
 			that.goto(_index);
 			return this;
+		},
+		fix_next_carousel:function(){
+			var that = this;
+			that.current_tab = that.current_tab -1;
+			var con = that.con = Y.one('#'+that.id);
+			if(that.effect != 'none'){
+				that.pannels = con.queryAll('.'+that.contentClass+' div.'+that.pannelClass);
+			}
+			var first_node = that.pannels.item(0);
+			Y.log(first_node)
+			that.animwrap.appendChild(first_node);
+			//first_node.remove();
+			if(that.effect == 'v-slide'){ //垂直
+				var top = that.animwrap.getStyle('top').replace(/[^\d]/ig,'');
+				that.animwrap.setStyle('top',-(Number(top)-that.animcon.get('region').height).toString()+'px');
+			}else if(that.effect == 'h-slide'){//水平
+				var left = that.animwrap.getStyle('left').replace(/[^\d]/ig,'');
+				that.animwrap.setStyle('left',-(Number(left)-that.animcon.get('region').width).toString()+'px');
+			}
+
+		},
+		fix_pre_carousel:function(){
+			var that = this;
+			that.current_tab = that.current_tab + 1;
+			var con = that.con = Y.one('#'+that.id);
+			if(that.effect != 'none'){
+				that.pannels = con.queryAll('.'+that.contentClass+' div.'+that.pannelClass);
+			}
+			var last_node = that.pannels.item(that.pannels.size()-1);
+			var first_node = that.pannels.item(0);
+			Y.Node.insertBefore(last_node,first_node);
+			//first_node.remove();
+			if(that.effect == 'v-slide'){ //垂直
+				var top = that.animwrap.getStyle('top').replace(/[^\d]/ig,'');
+				that.animwrap.setStyle('top',-(Number(top)+that.animcon.get('region').height).toString()+'px');
+			}else if(that.effect == 'h-slide'){//水平
+				var left = that.animwrap.getStyle('left').replace(/[^\d]/ig,'');
+				that.animwrap.setStyle('left',-(Number(left)+that.animcon.get('region').width).toString()+'px');
+			}
+
 		},
 		//切换至index
 		switch_to:function(index){
