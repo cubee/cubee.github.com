@@ -3,7 +3,7 @@
 <p class="author">最后更新日期：2010-01-13  by 乐渔(leyu@taobao.com)</p>
 <h2><strong>示例</strong></h2>
 <div class="demo">
-	<a href="/doc/example/template.html" class="button">通用模板HTML文件</a>
+	<a href="../example/template.html" class="button">通用模板HTML文件</a>
 </div>
 
 <h2><strong>用法及注意事项</strong></h2>
