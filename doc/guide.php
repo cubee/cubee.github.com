@@ -39,6 +39,7 @@
 				<li><a href="#template">&bull; Template 通用HTML模板</a></li>
 				<li><a href="#vote">&bull; vote 投票</a></li>
 				<li><a href="#using-css3">&bull; 适当使用CSS3</a></li>
+				<li><a href="#cross-domain-autoheight">&bull; 跨域高度自适应</a></li>
 			</ul>
 		</div><!-- .navgroup -->
 	</div>
