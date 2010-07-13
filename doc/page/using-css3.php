@@ -3,7 +3,7 @@
 <p class="author">最后更新日期：2010-02-08  by 空雁(kongyan@taobao.com)</p>
 <h2><strong>示例</strong></h2>
 <div class="demo">
-	<a href="/cubee/example/using-css3.html" class="button">演示示例</a>
+	<a href="../example/using-css3.html" class="button">演示示例</a>
 </div>
 
 <h2><strong>用法及注意事项</strong></h2>
