@@ -27,8 +27,8 @@
 				<li><a href="#checkall">&bull; Y.Checkall checkbox全选反选</a></li>
 				<li><a href="#rankinglist">&bull; Y.RankingList 排行榜</a></li>
 				<li><a href="#floatip">&bull; Y.Floatip 浮动提示</a></li>
-				<li><a href="#ticker">&bull; Y.Ticker ticker滚动</a></li>
-				<li><a href="#cutter">&bull; Y.Cutter Cutter图片展示</a></li>
+				<li><a href="#ticker">&bull; Y.Ticker ticker滚动</a><sup>beta</sup></li>
+				<li><a href="#cutter">&bull; Y.Cutter Cutter图片展示</a><sup>beta</sup></li>
 				<li><del><a href="#slideshow">&bull; Y.Slideshow 幻灯</a></del></li>
 			</ul>
 		</div><!-- .navgroup -->
