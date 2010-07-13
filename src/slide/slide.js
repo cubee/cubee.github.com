@@ -1,4 +1,5 @@
-YUI().namespace('Y.Slide');
+//作者：lijing00333@163.com
+YUI.namespace('Y.Slide');
 YUI.add('slide',function(Y){
 	Slide = function(){
 		this.init.apply(this,arguments);
