@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=GB18030">
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>Taobao通用页面HTML模板 - 淘宝网</title>
+
+	<link rel="stylesheet" type="text/css" href="global-min.css">
+	<link rel="stylesheet" type="text/css" href="http://a.tbcdn.cn/app/dp/css/*channel-name*/*channel-common*.css"><!-- 频道通用样式 -->
+
+ 	<link rel="stylesheet" type="text/css" href="http://a.tbcdn.cn/app/dp/css/*channel-name*/*channel-page*.css"><!-- 频道页面级样式 -->
+	<!--淘宝头 {{ -->
+	<script type="text/javascript" src="http://a.tbcdn.cn/tbra/1.0/tbra-widgets.js?t=20090619.js"></script>
+	<link rel="stylesheet" href="http://a.tbcdn.cn/tbra/2.1/header/header-min.css?t=20100317.css" />
+	<script src="http://a.tbcdn.cn/tbra/2.1/header/header-min.js?t=20100317.js"></script>
+	<!--淘宝头 }} -->
+
+	<!-- {////////请删掉我  -->
+
+	<style type="text/css">
+	.text{background-color:#dcdcdc;padding:5px;}
+	.text p{display:inline-block;*display:inline;zoom:1;padding:3px 10px;font-size:12px;background-color:#efefef;border:1px solid #c5c5c5;text-align:center; }
+
+	/*保险为例 如果在header.css中未发现相关频道的sublogo，请自定义，如下：并放置于所属频道通用样式*/
+	#logo .sub-logo{width:60px;background:url(http://img04.taobaocdn.com/tps/i4/T1nfdpXctsXXXXXXXX-46-22.png) no-repeat 100% 100%;}
+	</style>
+	<!-- }////////请删掉我 -->
+</head>
+ 
+<body>
+<div id="doc-w">
+	<div id="hd">
+		<!-- {{ /////////////////////////////////////////淘宝通用头嵌入位置 -->
+		<div id="header">
+			<div id="site-nav">
+
+            <p class="login-info"><script>TB.Header.writeLoginInfo({"memberServer": "http://member1.taobao.com", "loginServer": "https://login.taobao.com", redirectUrl : ""});</script></p>
+            <ul class="quick-menu">
+                <li class="home"><a href="http://www.taobao.com/">淘宝网首页</a></li>
+                <li class="mytaobao menu-item">
+					<div class="menu">
+						<a class="menu-hd" href="http://i.taobao.com/my_taobao.htm">我的淘宝<b></b></a>
+						<div class="menu-bd">
+
+							<div class="menu-bd-panel">
+								<div>
+									<a href="http://trade.taobao.com/trade/itemlist/list_bought_items.htm">已买到的宝贝</a><br>
+									<a href="http://trade.taobao.com/trade/itemlist/list_sold_items.htm">已卖出的宝贝</a>
+								</div>
+							</div>
+							<s class="r"></s><s class="rt"></s><s class="lt"></s><s class="b"></s><s class="b b2"></s><s class="rb"></s><s class="lb"></s>
+						</div>
+
+					</div>
+				</li>
+				<li class="cart"><a href="http://buy.taobao.com/auction/cart/my_cart.htm">购物车</a></li>
+				<li class="favorite"><a href="http://favorite.taobao.com/collect_list-1-.htm?scjjc=c1">收藏夹</a></li>
+				<li class="search menu-item">
+					<div class="menu">
+						<span class="menu-hd"><s></s>搜索<b></b></span>
+
+						<div class="menu-bd">
+							<div class="menu-bd-panel">
+								<form action="http://search1.taobao.com/browse/search_auction.htm?ssid=s0&at_topsearch=1" method="post" name="topSearch">
+									<input name="q" />
+									<button type="submit">搜 索</button>
+									<input type="hidden" name="sort" value="" />
+									<input type="hidden" name="at_topsearch" value="1" />
+									<input type="hidden" name="f" value="D9_5_1" />
+
+									<input type="hidden" name="promote" value="" />
+									<input type="hidden" name="isnew" value="2" />
+									<input type="hidden" name="atype" value="b" />
+									<input type="hidden" name="commend" value="all" />
+									<input type="hidden" name="search_type" value="auction" />
+									<input type="hidden" name="user_action" value="initiative" />
+									<input type="hidden" name="ssid" value="s1-e" />
+									<input type="hidden" name="support_cod" value="" />
+								</form>
+
+							</div>
+							<s class="r"></s><s class="rt"></s><s class="lt"></s><s class="b"></s><s class="b b2"></s><s class="rb"></s><s class="lb"></s>
+						</div>
+					</div>
+				</li>
+				<li class="services menu-item last">
+					<div class="menu">
+						<a class="menu-hd" href="http://www.taobao.com/sitemap.php" target="_blank">网站导航<b></b></a>
+
+						<div class="menu-bd">
+							<div class="menu-bd-panel">
+								<dl>
+									<dt>购物</dt>
+									<dd>
+										<a href="http://mall.taobao.com/" target="_blank">商城</a>
+										<a href="http://3c.taobao.com/" target="_blank">电器城</a>
+
+										<a href="http://global.taobao.com/" target="_blank">全球购</a>
+										<a href="http://ershou.taobao.com/" target="_blank">跳蚤街</a>
+										<a href="http://www.taobao.com/go/chn/gift/index2009.php?ad_id=&am_id=&cm_id=140012292649e9200b00&pm_id=" target="_blank">礼物</a>
+										<a href="http://www.taobao.com/go/chn/sale/index2009.php" target="_blank">促销</a>
+										<a href="http://jipiao.taobao.com/index.htm?from=top" target="_blank">机票</a>
+										<a href="http://caipiao.taobao.com/lottery/index.htm" target="_blank">彩票</a>
+
+									</dd>
+								</dl>
+								<dl>
+									<dt><a href="http://a.taobao.com/" target="_blank">门户</a></dt>
+									<dd>
+										<a href="http://man.taobao.com/" target="_blank">男人</a>
+										<a href="http://lady.taobao.com/" target="_blank">女人</a>
+
+										<a href="http://baby.taobao.com/" target="_blank">亲子</a>
+										<a href="http://fashion.taobao.com/" target="_blank">服饰</a>
+										<a href="http://beauty.taobao.com/" target="_blank">美容</a>
+										<a href="http://luxury.taobao.com/" target="_blank">时尚</a>
+										<a href="http://life.taobao.com/" target="_blank">居家</a>
+										<a href="http://it.taobao.com/" target="_blank">数码</a>
+
+										<a href="http://ent.taobao.com/" target="_blank">娱乐</a>
+										<a href="http://bbs.taobao.com/" target="_blank">社区</a>
+									</dd>
+								</dl>
+								<dl>
+									<dt><a href="http://www.taojianghu.com/" target="_blank">淘江湖</a></dt>
+								</dl>
+
+								<dl class="last">
+									<dd>
+										<a href="http://service.taobao.com/support/help.htm" target="_blank">帮助中心</a>
+										<a href="http://trust.taobao.com/" target="_blank">交易安全</a>
+										<br>
+										<strong><a href="http://www.taobao.com/sitemap.php" target="_blank">更多内容</a></strong>
+									</dd>
+
+								</dl>
+							</div>
+							<s class="r"></s><s class="rt"></s><s class="lt"></s><s class="b"></s><s class="b b2"></s><s class="rb"></s><s class="lb"></s>
+						</div>
+					</div>
+				</li>            
+			</ul>
+        </div>
+        <!-- system-announce -->
+
+        <h1 id="logo">
+			<a href="http://www.taobao.com/" target="_top"><img alt="淘宝网 Taobao.com - 阿里巴巴旗下网站" src="http://a.tbcdn.cn/tbsp/img/header/logo.png" width="140" height="35" /></a><s class="sub-logo"></s>
+		</h1>
+                <div class="wrap-box">
+					<div id="site-search">
+						<div class="search-box">
+							<form id="search" name="search" action="http://search.taobao.com/search" target="_top">
+								<input type="hidden" name="at_topsearch" value="1" />
+								<input type="hidden" name="f" value="D9_5_1" /><input type="hidden" name="commend" value="all" />
+
+								<input type="hidden" name="promote" value="" />
+								<input type="hidden" name="prop" value="" />
+								<input type="hidden" name="ppath" value="" />
+								<input type="hidden" name="atype" value="" />
+								<input type="hidden" name="isnew" value="" />
+								<input type="hidden" name="ssid" value="s5-e" />
+								<input type="hidden" name="user_action" value="initiative" />
+								<span class="search-type">
+								<select name="search_type">
+
+									<option value="item" selected="selected">宝贝</option>
+									<option value="shop">店铺</option>
+									<option value="mall">商城</option>
+									<option value="auction">拍卖</option>
+									<option value="global">全球购</option>
+									<option value="dating">打听</option>
+
+								</select>
+								</span>
+								<span class="search-query"><input id="q" name="q" accesskey="s" class="keyword" autocomplete="off" /></span>
+								<span class="search-cat">
+									<select name="cat">
+										<option value="" selected="selected">所有分类</option> 
+										<option value="99">&nbsp;网络游戏点卡</option> 
+										<option value="50017708">&nbsp;网游装备、游戏币、帐号、代练</option> 
+										<option value="40">&nbsp;腾讯QQ专区</option> 
+										<option value="50004958">&nbsp;移动联通小灵通充值中心</option> 
+										<option value="50008907">&nbsp;IP卡、网络电话、手机号码</option> 
+										<option value="1512">&nbsp;品牌手机</option> 
+										<option value="50019321">&nbsp;国货精品手机</option> 
+										<option value="50018367">&nbsp;手机配件</option> 
+										<option class="S" value="11">&nbsp;电脑硬件、台式整机、网络设备</option> 
+										<option class="S" value="1101">&nbsp;笔记本电脑</option> 
+										<option class="S" value="50018377">&nbsp;笔记本配件</option> 
+										<option class="S" value="14">&nbsp;数码相机、摄像机、图形冲印</option> 
+										<option class="S" value="1201">&nbsp;MP3、MP4、iPod、录音笔</option> 
+										<option class="S" value="50008090">&nbsp;3C数码配件市场</option> 
+										<option class="S" value="50007218">&nbsp;办公设备、办公用品及耗材</option> 
+										<option class="S" value="50018627">&nbsp;电子辞典、学习机、文具</option> 
+										<option class="S" value="50018908">&nbsp;影音电器</option> 
+										<option class="S" value="50017285">&nbsp;国货精品视听</option> 
+										<option class="S" value="50018957">&nbsp;生活电器</option> 
+										<option class="S" value="50018930">&nbsp;厨房电器</option> 
+										<option class="S" value="50008168">&nbsp;网络服务、电脑软件</option> 
+										<option class="S" value="50019393">&nbsp;闪存卡、U盘、移动存储</option> 
+										<option value="50010788">&nbsp;彩妆、香水、美发、工具</option> 
+										<option value="1801">&nbsp;美容护肤、美体、精油</option> 
+										<option value="50015926">&nbsp;珠宝、钻石、翡翠、黄金</option> 
+										<option value="50005700">&nbsp;品牌手表、流行手表</option> 
+										<option value="1705">&nbsp;饰品、流行首饰、时尚饰品</option> 
+										<option value="16">&nbsp;女装、女士精品</option> 
+										<option value="50006843">&nbsp;女鞋</option> 
+										<option value="50006842">&nbsp;男女箱包、单肩包、手提包、旅行箱</option> 
+										<option value="1625">&nbsp;女士内衣、男士内衣、家居服</option> 
+										<option value="50016853">&nbsp;男鞋、皮鞋、休闲鞋</option> 
+										<option value="30">&nbsp;男装</option> 
+										<option value="50010404">&nbsp;配件、皮带、围巾、领带、帽子手套</option> 
+										<option value="50010728">&nbsp;运动、瑜伽、健身、球迷用品</option> 
+										<option value="50016756">&nbsp;运动服、运动包、颈环配件</option> 
+										<option value="50010388">&nbsp;运动鞋</option> 
+										<option value="2203">&nbsp;户外、登山、野营、涉水</option> 
+										<option value="50018963">&nbsp;旅游度假、打折机票、特惠酒店</option> 
+										<option value="50008165">&nbsp;童装、童鞋、婴儿服、孕妇装</option> 
+										<option value="35">&nbsp;奶粉、尿片、母婴用品</option> 
+										<option value="50005998">&nbsp;益智玩具、童车、童床、书包</option> 
+										<option class="S" value="21">&nbsp;居家日用、厨房餐饮、卫浴洗浴</option> 
+										<option class="S" value="2128">&nbsp;时尚家饰、工艺品、十字绣</option> 
+										<option class="S" value="50019142">&nbsp;个人护理保健</option> 
+										<option class="S" value="50008164">&nbsp;家具、家具定制、宜家代购</option> 
+										<option class="S" value="50008163">&nbsp;家纺 床上用品 地毯 布艺</option> 
+										<option class="S" value="27">&nbsp;装潢、灯具、五金、安防、卫浴</option> 
+										<option value="50008825">&nbsp;保健食品</option> 
+										<option value="50002766">&nbsp;食品、茶叶、零食、特产</option> 
+										<option value="23">&nbsp;古董、邮币、字画、收藏</option> 
+										<option value="26">&nbsp;汽车、配件、改装、摩托、自行车</option> 
+										<option value="29">&nbsp;宠物、宠物食品及用品</option> 
+										<option value="28">&nbsp;ZIPPO、瑞士军刀、眼镜</option> 
+										<option value="2813">&nbsp;成人用品、避孕用品、情趣内衣</option> 
+										<option value="33">&nbsp;书籍、杂志、报纸</option> 
+										<option value="34">&nbsp;音乐、影视、明星、乐器</option> 
+										<option value="20">&nbsp;电玩、配件、游戏、攻略</option> 
+										<option value="25">&nbsp;模型、娃娃、人偶、毛绒、KITTY</option> 
+										<option value="50008075">&nbsp;演出、旅游、吃喝玩乐折扣券</option> 
+										<option value="50007216">&nbsp;鲜花速递、蛋糕配送、园艺花艺</option> 
+										<option value="50003754">&nbsp;网店装修、用品、物流快递、图片存储</option>
+
+										<option class="S" value="special0">&nbsp;数字电影、电视剧、综艺</option>
+										<option class="S" value="special1">&nbsp;电子杂志、时尚生活、娱乐前沿</option>
+									</select>
+								</span>
+								<button class="search-submit" type="submit">搜 索</button>                    
+							</form>
+						</div>
+						<div class="search-more">
+
+							<a href="http://search1.taobao.com/browse/ad_search.htm?ssid=s0">高级搜索</a>
+							<a href="http://service.taobao.com/support/knowledge-847669.htm" target="_blank">使用帮助</a>                
+						</div>
+					</div>
+				</div>
+            </div>
+			<script>TB.Header.init();</script>
+		<!-- }} /////////////////////////////////////////淘宝通用头嵌入位置 -->
+
+		<!-- {{ /////////////////////////////////////////数字产品频道头嵌入位置 -->
+		<div id="channel-hd">
+			<!-- 请删掉我 --><div class="text"><p>#频道导航</p></div><!-- 请删掉我 -->
+		</div><!-- channel-hd -->
+		<!-- }} /////////////////////////////////////////数字产品频道头嵌入位置 -->
+	</div>
+	<div id="bd">
+	<!-- {{ 面包屑 -->
+
+	<div class="grid">
+	<!-- 请删掉我 --><div class="text"><p>#面包屑</p></div><!-- 请删掉我 -->
+	</div>
+	<!-- }} 面包屑 -->
+	<!-- {{ /////////////////////////////////////////频道内容 -->
+	<!-- {{
+	// 请用Grid来搭建页面。	
+	}} -->
+	<div class="grid">
+	<!-- 请删掉我 --><div class="text"><p>#主内容</p></div><!-- 请删掉我 -->
+
+	</div>
+	<div class="grid-l2">
+		<div class="g-main">
+			<div class="g-wrap">
+			<!-- 请删掉我 --><div class="text"><p>#主内容</p></div><!-- 请删掉我 -->
+			</div>
+		</div>
+		<div class="g-side">
+
+		<!-- 请删掉我 --><div class="text"><p>#左边栏</p></div><!-- 请删掉我 -->
+		</div>
+	</div>
+	<div class="grid-r2">
+		<div class="g-main">
+			<div class="g-wrap">
+			<!-- 请删掉我 --><div class="text"><p>#主内容</p></div><!-- 请删掉我 -->
+			</div>
+
+		</div>
+		<div class="g-side">
+		<!-- 请删掉我 --><div class="text"><p>#右边栏</p></div><!-- 请删掉我 -->
+		</div>
+	</div><!-- .grid-rc -->
+
+	<!-- }} /////////////////////////////////////////频道内容 -->
+	</div>
+	<div id="ft">
+
+	<!-- {{ /////////////////////////////////////////淘宝通用底部 -->
+		<div class="foot-nav">
+			<a href="http://www.taobao.com/about">关于淘宝</a>
+			<a href="http://www.taobao.com/ads/yingxiaozhongxin_tb.php">广告服务</a>
+			<a href="http://www.taobao.com/about/partners.php">合作伙伴</a>
+			<a href="http://cs.taobao.com/">帮助中心</a>
+			<a href="http://www.taobao.com/about/join.php">诚征英才</a>
+
+			<a href="http://my.taobao.com/mytaobao/misc/contact.jhtml">联系我们</a>
+			<a href="http://www.taobao.com/sitemap.php">网站地图</a>
+			<a href="http://www.taobao.com/theme/hotbrands.php">热门品牌</a>
+			<a href="http://www.taobao.com/about/copyright.php">版权说明</a>
+			<a href="http://list.mall.taobao.com/promotion/activity/zhaoshang.htm">加入商城</a>
+			<a href="http://taoke.alimama.com/">淘宝客</a>
+
+			<a href="http://trust.taobao.com/">交易安全</a>
+		</div>
+		<div class="ali-group">
+			<a href="http://page.china.alibaba.com/shtml/about/ali_group1.shtml" target="_blank">阿里巴巴集团</a>：	
+			阿里巴巴网络 - <a href="http://china.alibaba.com/" target="_blank">中国站</a> <a href="http://www.alibaba.com/" target="_blank">国际站</a> <a href="http://www.alibaba.co.jp/" target="_blank">日文站</a> | 
+			<a href="http://www.taobao.com/" target="_blank">淘宝网</a> | 
+			<a href="http://www.alipay.com/" target="_blank">支付宝</a> | 
+			<a href="http://www.yahoo.com.cn/" target="_blank">中国雅虎</a> | 
+			<a href="http://www.koubei.com/" target="_blank">口碑网</a> | 
+			<a href="http://www.alisoft.com" target="_blank">阿里软件</a> | 
+			<a href="http://www.alimama.com/" target="_blank">阿里妈妈</a> | 
+			<a href="http://www.aliresearch.com" target="_blank">集团研究中心</a>
+
+		</div>
+		<div id="copyright">Copyright &copy; 2003-2010, 版权所有 TAOBAO.COM</div>
+	<!-- }} /////////////////////////////////////////淘宝通用底部 -->
+	</div>
+</div>
+</body>
+</html>

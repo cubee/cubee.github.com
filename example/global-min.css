@@ -1,0 +1,71 @@
+/* -------------------------------------------------
+* For Reset
+* @Author : leyu@taobao.com
+* -------------------------------------------------
+*/
+html{color:#333;background:#fff}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,th,var,optgroup{font-style:normal;font-weight:400}li{list-style:none}caption{text-align:left}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select,button,option{font-family:inherit;font-size:inherit;font-weight:inherit}h1,h2,h3,h4,h5,h6,input,textarea,select,button{font-size:100%}legend{color:#000}q:before,q:after{content:''}
+#doc,#header,#channel-hd,#DPhd,#bd,#ft{width:950px;margin:0 auto;z-index:1}
+/*grid*/
+#doc-w,.g-main{width:100%}.g-side{width:190px}.g-aside{width:270px;position:relative}.g-side,.grid-r2 .g-main,.grid-l2 .g-side,.grid-r3 .g-aside,.grid-rc .g-main,.grid-r3 .g-main{float:left}.g-main,.g-aside,.grid-r2 .g-side,.grid-r3 .g-side,.grid-rc .g-side{float:right}.grid-r2 .g-main,.grid-rc .g-main{margin-right:-100%}.grid-l2 .g-main,.grid-lc .g-main{margin-left:-100%}.grid-r2 .g-wrap{margin-right:200px}.grid-l2 .g-wrap{margin-left:200px}.grid-r3 .g-main{margin:0 -190px 0 -270px}.grid-r3 .g-wrap{margin:0 200px 0 280px}.grid-l3 .g-main{margin:0 -270px 0 -190px}.grid-l3 .g-wrap{margin:0 280px 0 200px}.grid,.grid-l2,.grid-r2,.grid-l3,.grid-r3,.grid-lc,.grid-rc{margin-bottom:10px;position:relative;*display:inline-block}.grid:after,.grid-l2:after,.grid-r2:after,.grid-l3:after,.grid-r3:after,.grid-lc:after,.grid-rc:after{clear:both;content:'';display:block;font-size:0;line-height:0;visibility:hidden;width:0;height:0}
+body{font:normal 12px/1.5 'Tahoma','simsun'}
+a{color:#0041d9;text-decoration:none}
+a:visited{color:#2b5fd9}
+a:hover{color:#f60;text-decoration:underline}
+#header{margin:0 auto 10px;position:relative}
+#site-search form span.search-query{*margin-top:1px}
+#site-search .search-query input{height:16px}
+#channel-hd{margin-bottom:10px}
+#ft{border-top:1px solid #D1D7DC;clear:both;margin:10px auto;padding:10px 0 15px;text-align:center}#ft .foot-nav{display:block;height:20px;margin:0 auto}#ft .foot-nav a{margin:0 7px}#ft .ali-group{margin:5px auto}#ft .ali-group a{margin:0 1px}#ft .copyright{clear:both;margin:15px auto 0}
+.clearfix:after {content:".";display:block;height:0;clear:both;visibility:hidden}.clearfix{display:inline-block}/* Hides from IE-mac \*/* html .clearfix {height:1%}.clearfix {display:block}/* End hide from IE-mac */
+.fl{float:left}
+.fr{float:right}
+.hidden {display:none}
+.cb{clear:both}
+.cl{clear:left}
+.cr{clear:right}
+.tr{text-align:right}
+.tc{text-align:center}
+.vm{vertical-align:middle}
+.pr{position:relative}
+.pa{position:absolute}
+.zoom{zoom:1}
+.p6{padding:6px}
+.p10{padding:10px}
+.pt5 {padding-top:5px}
+.mr10{margin-right:10px}
+.ml10 {margin-left:10px}
+.ml10{margin-left:10px}
+.ml20{margin-left:20px}
+.ml30{margin-left:30px}
+.ml40{margin-left:40px}
+.mr20 {margin-right:20px}
+.pt10{padding-top:10px}
+.pb10{padding-bottom:10px}
+.pb20{padding-bottom:20px}
+.pb30{padding-bottom:30px}
+.pb40{padding-bottom:40px}
+.pb50{padding-bottom:50px}
+.pl10 {padding-left:10px}
+.pt20 {padding-top:20px}
+.pb30 {padding-bottom:30px}
+.pt30 {padding-top:30px}
+.pr10 {padding-right:10px}
+.pl20 {padding-left:20px}
+.pl30 {padding-left:30px}
+.pr20 {padding-right:20px}
+.mb10 {margin-bottom:10px}
+.mb20 {margin-bottom:20px}
+.mt10 {margin-top:10px}
+.mt20 {margin-top:20px}
+.ml60{margin-left:60px}
+.ml80{margin-left:80px}
+.ml100{margin-left:100px}
+.ml120{margin-left:120px}
+.thin{font-weight:400}
+.bold{font-weight:700}
+.f14{font-size:14px}
+.f16{font-size:16px}
+.pop,.orange,a.orange,.orange a,.orange a:hover{color:#f60}
+.url,.blue,a.blue,.blue a,.blue a:hover{color:#0041d9}
+.gray,a.gray,.gray a,.gray a:hover{color:#666}
+
