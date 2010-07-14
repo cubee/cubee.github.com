@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>cubee-base</title>
+<script type="text/javascript" src="http://cn.yimg.com/i/yui/3.0.0/build/yui/yui-min.js"></script>
+
+<style>
+	body { font: 14px Georgia,"Times New Roman",Times,sans-serif; color: #444; }
+	h1 { font-size: 26px; color: #00859D; font-family: Constantia,serif; }
+	h3 { font-size: 14px; color: #555; margin: 15px 0 5px; }
+	code {font-family:"Courier New"}
+	.yui-console {position:fixed !important;_position:absolute;}
+</style>
+<script>
+<!--
+var Y = YUI({
+	combine:true,
+	modules:{
+		'cubee-base':{//默认皮肤
+			fullpath:'../cubee-base.js',
+			requires:['json','node']
+		}
+	}
+}).use('dump','console');
+Y.use('console',function(Y){
+	new Y.Console().render(); 
+});
+//-->
+</script>
+</head>
+<body  class="yui-skin-sam">
+<h1>cubee-base</h1>
+<hr size=1 />
+<h3>Y.Base.getLength</h3>
+计算对象和数组的长度
+<code><pre>
+var o = {
+	x:1,
+	y:2,
+	z:3
+};
+var a = [0,1,2,3,4];
+Y.Base.getLength(o) = 3;
+Y.Base.getLength(a) = 5;
+</pre></code>
+计算：
+<button id="J_getlength_1">Y.Base.getLength(o)</button>
+<button id="J_getlength_2">Y.Base.getLength(a)</button>
+<script>
+Y.use('cubee-base',function(Y){
+	var o = {
+		x:1,
+		y:2,
+		z:3
+	};
+	var a = [0,1,2,3,4];
+	Y.one('#J_getlength_1').on('click',function(e){
+		Y.log(Y.Base.getLength(o));
+	});
+	Y.one('#J_getlength_2').on('click',function(e){
+		Y.log(Y.Base.getLength(a));
+	});
+});
+</script>
+<hr size=1 />
+<h3>Y.Base.createIframe</h3>
+<p>创建一个隐藏的iframe，创建成功后执行回调：</p>
+<button id="J_createIframe">创建</button>
+<script>
+Y.use('cubee-base',function(Y){
+	Y.one('#J_createIframe').on('click',function(e){
+		Y.Base.createIframe('YAHOO_'+(new Date().getTime().toString()),'http://www.baidu.com',function(id){
+			var msg = 'iframe#'+id+'创建成功';
+			alert(msg);
+			Y.log(msg);
+		});
+	});
+});
+</script>
+<hr size=1 />
+<h3>Y.Base.distinct</h3>
+数组去重,每组重复的值只保留最后一个
+<code><pre>
+var a = [0,1,2,3,4,1,5,4,0,3,2];
+Y.Base.distinct(a) = [0,1,2,3,4,5];
+</pre></code>
+计算：
+<button id="distinct">Y.Base.distinct(a)</button>
+<script>
+Y.use('cubee-base',function(Y){
+	var a = [0,1,2,3,4,1,5,4,0,3,2];
+	Y.one('#distinct').on('click',function(e){
+		Y.log(Y.dump(Y.Base.distinct(a)));
+	});
+});
+</script>
+<hr size=1 />
+<h3>Y.Base.getUrlValue</h3>
+得到Url中的search和hash值，hash中的值优先
+<code><pre>
+var url = 'http://www.baidu.com/?wd=abc&page=2#key=sth&charset=utf8';
+Y.Base.getUrlValue(url) = {
+	wd:'abc',
+	page:'2',
+	key:'sth',
+	charset:'utf-8'
+};
+</pre></code>
+计算：
+<button id="getUrlValue">Y.Base.getUrlValue(url)</button>
+<script>
+Y.use('cubee-base',function(Y){
+	var url = 'http://www.baidu.com/?wd=abc&page=2#key=sth&charset=utf8';
+	Y.one('#getUrlValue').on('click',function(e){
+		Y.log(Y.dump(Y.Base.getUrlValue(url)));
+	});
+});
+</script>
+<hr size=1 />
+<h3>Y.Base.setUrlValue</h3>
+设置Url中的search的值
+<code><pre>
+var url = 'http://www.baidu.com/?wd=abc&page=2';
+Y.Base.setUrlValue(url,{
+	page:3
+}) = 'http://www.baidu.com/?wd=abc&page=3';
+</pre></code>
+计算：
+<button id="setUrlValue">Y.Base.setUrlValue(url)</button>
+<script>
+Y.use('cubee-base',function(Y){
+	var url = 'http://www.baidu.com/?wd=abc&page=2';
+	Y.one('#setUrlValue').on('click',function(e){
+		Y.log(Y.Base.setUrlValue(url,{
+			page:3
+		}));
+	});
+});
+</script>
+<hr size=1 />
+<h3>Y.Base.getHash & Y.Base.getHash</h3>
+得到设置Url中的hash的值,Y.Base.getHash的使用请参照Y.Base.getUrlValue
+<code><pre>
+var url = 'http://www.baidu.com/#wd=abc&page=2';
+Y.Base.setHash(url,{
+	page:3
+}) = 'http://www.baidu.com/#wd=abc&page=3';
+</pre></code>
+计算：
+<button id="setHash">Y.Base.setHash(url)</button>
+<script>
+Y.use('cubee-base',function(Y){
+	var url = 'http://www.baidu.com/#wd=abc&page=2';
+	Y.one('#setHash').on('click',function(e){
+		Y.log(Y.Base.setHash(url,{
+			page:3
+		}));
+	});
+});
+</script>
+<hr size=1 />
+<h3>Y.Base.cn_strlen</h3>
+计算字符长度，中文字符算2个长度
+<code><pre>
+var txt = 'abc中文';
+Y.Base.cn_strlen(txt) = 7;
+</pre></code>
+计算：
+<button id="cn_strlen">Y.Base.cn_strlen(txt)</button>
+<script>
+Y.use('cubee-base',function(Y){
+	var txt = 'abc中文';
+	Y.one('#cn_strlen').on('click',function(e){
+		Y.log(Y.Base.cn_strlen(txt));
+	});
+});
+</script>
+<hr size=1 />
+<h3>Y.Base.templetShow</h3>
+模板替换函数
+<code><pre>
+var templete = '<span>{$name}</span><i>{$company}</i>';
+Y.Base.templetShow(templete,{
+	name:'jayli',
+	company:'yahoo'
+}) = '<span>jayli</span><i>yahoo</i>';
+Y.Base.templetShow(templete,[{
+	name:'jayli',
+	company:'yahoo'
+},{
+	name:'bachi',
+	company:'taobao'
+}]) = '<span>jayli</span><i>yahoo</i><span>bachi</span><i>taobao</i>';
+</pre></code>
+计算：
+<button id="templetShow">Y.Base.templetShow(temp)</button>
+<script>
+Y.use('cubee-base',function(Y){
+	var templete = '<span>{$name}</span><i>{$company}</i>';
+	Y.one('#templetShow').on('click',function(e){
+		Y.log(Y.Base.templetShow(templete,{
+			name:'jayli',
+			company:'yahoo'
+		}));
+	});
+});
+</script>
+<hr size=1 />
+<h3>Y.Base.AE</h3>
+伴随函数的绑定,bind一次之后再执行foo
+<code><pre>
+var foo = new Function;
+foo = Y.Base.AE(foo,function(){
+	alert('伴随函数');
+});
+foo();
+</pre></code>
+DEMO：
+<button id="AE_1">foo</button>
+<button id="AE_2">bind</button>
+<script>
+Y.use('cubee-base',function(Y){
+	var foo = function(){
+		Y.log('函数foo执行');
+	};
+	Y.one('#AE_1').on('click',function(){
+		foo();
+	});
+	Y.one('#AE_2').on('click',function(e){
+		//debugger;
+		foo = Y.Base.AE(foo,function(){
+			Y.log('伴随函数','waring');
+		});
+	});
+});
+</script>
+<hr size=1 />
+<h3>Y.Base.wbtrim</h3>
+长连续字符的自动折行：
+<div style="width:100px;background-color:yellow;" id="wbtrim">adkfjasdkflajsd2390892asdjfljladj2039e20asldfjalsfjasdfjasdf</div>
+<button id="wbtrim_b">折行</button>
+<script>
+Y.use('cubee-base',function(Y){
+	Y.one('#wbtrim_b').on('click',function(e){
+		var con = Y.one('#wbtrim');
+		var txt = con.get('innerHTML');
+		con.set('innerHTML',Y.Base.wbtrim(txt));
+	});
+});
+</script>
+<hr size=1 />
+<h3>Y.Base.trimSize</h3>
+过滤长字符串：
+<div id="wbtrim_d">adkfjasdkflajsd2390892asdjfljladj2039e20asldfjalsfjasdfjasdf</div>
+<button id="wbtrim_c">缩减到10个</button>
+<script>
+Y.use('cubee-base',function(Y){
+	Y.one('#wbtrim_c').on('click',function(e){
+		var con = Y.one('#wbtrim_d');
+		var txt = con.get('innerHTML');
+		con.set('innerHTML',Y.Base.trimSize(txt,10));
+	});
+});
+</script>
+<hr size=1 />
+<h3>Y.Base.DOMData</h3>
+将数据存储在Dom节点上：
+<span style="background-color:orange;" id="DOMData">Dom节点</span>
+<p>key:<input type="text" id="key" /> value:<input type="text" id="value" /></p>
+给节点添加数据：<button id="B1">添加</button> 查看数据：<button id="B2">查看</button>
+<script>
+Y.use('cubee-base',function(Y){
+	//添加数据
+	Y.one('#B1').on('click',function(e){
+		var con = Y.one('#key');
+		var key = con.get('value');
+		if(key == ''){
+			alert('key不能为空');
+		}
+		var value = Y.one('#value').get('value');
+		var node = Y.one('#DOMData');
+		Y.Base.DOMData(node).set(key,value);		
+	});
+	//查看数据
+	Y.one('#B2').on('click',function(e){
+		var node = Y.one('#DOMData');
+		var key = Y.one('#key').get('value');
+		Y.log(Y.Base.DOMData(node).get(key));
+	});
+});
+</script>
+<hr size=1 />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p style="clear:both">
+在ie6,ie7,firefox2,firefox3.0/3.5/3.6,safari4.0,opera9.62,chrome3.0下测试通过<br />
+author:bachi@taobao.com（拔赤）<br />
+msn:lijing00333@163.com<br />
+moreinfo:http://www.uedmagazine.com
+</p>
+
+
+
+</body>
+</html>

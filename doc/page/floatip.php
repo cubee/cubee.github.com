@@ -10,6 +10,7 @@
 	<li>可以针对nodelist一次初始化，float tip样式需自己定义</li>
 	<li>floatip只需要初始化，并不需要中途修改，不对外提供接口</li>
 	<li>适用于类似a标签title属性的小提示的简单修饰</li>
+	<li>内容需要在node的rel属性中指定</li>
 	<li>在ie6,ie7,firefox2,firefox3.0/3.5/3.6,safari4.0,opera9.62,chrome3.0下测试通过</li>
 	<li>更多信息请参照：http://developer.yahoo.com/yui/3/examples/widget/widget-tooltip.html</li>
 </ul>
@@ -56,6 +57,7 @@ new Y.Floatip(Y.all('.floatip'),{
 				<p><b>right</b>:{number} 距离触点右上角的右边距</p>
 				<p><b>top</b>:{number} 距离触点右上角的右边距</p>
 				<p><b>stay</b>:{number} tip停留的毫秒数，默认为300</p>
+				<p><b>hack</b>:{array} hack函数，参数是[x,y]，主要针对ie系</p>
 			</dd>
 		</dl>
 	</dd>

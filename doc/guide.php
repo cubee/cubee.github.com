@@ -15,6 +15,7 @@
 			<h4>Cubee Widgets</h4>
 			<ul>
 				<!--在这里添加菜单项-->
+				<li><a href="#cubee-base">&bull; Y.Base 常用工具</a></li>
 				<li><a href="#tip">&bull; Y.Tip 提示信息</a></li>
 				<li><a href="#box">&bull; Y.Box 弹出层</a></li>
 				<li><a href="#calendar">&bull; Y.Calendar 日历控件</a></li>

@@ -14,7 +14,8 @@
  *	配置：	float_class {string} 浮动层的classname
  *			right:距离触点右上角的右边距
  *			top:距离触点右上角的上边距
- *			stay:mouseout多少毫秒后消失
+ *			stay:mouseout多少毫秒后消失,
+ *			hack:hack函数，参数是[x,y]，主要针对ie系
  * Tip:msg需要在node的rel属性中指定
  *			
  *		
@@ -83,6 +84,7 @@ YUI.add('floatip',function(Y){
 			var o = o || {};
 			this.float_class = (typeof o.float_class == 'undefined'||o.float_class == null)?'float-tip':o.float_class;
 			this.right = (typeof o.right == 'undefined'||o.right == null)?4:o.right;
+			this.hack = (typeof o.hack == 'undefined'||o.hack == null)?false:o.hack;
 			this.top = (typeof o.top == 'undefined'||o.top == null)?0:o.top;
 			this.stay = (typeof o.stay == 'undefined'||o.stay == null)?300:o.stay;
 			return this;
@@ -94,6 +96,11 @@ YUI.add('floatip',function(Y){
 			var txt = trigger.getAttribute('rel');
 			var _x = trigger.getXY()[0]+ trigger.get('region').width + that.right;
 			var _y = trigger.getXY()[1] + that.top;
+			if(that.hack){
+				var _a = that.hack([_x,_y]);
+				_x = _a[0];
+				_y = _a[1];
+			}			
 			that.tip.setStyle('left',_x.toString()+'px');
 			that.tip.setStyle('top',_y.toString()+'px');
 			that.tip.set('innerHTML',txt);
