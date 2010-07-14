@@ -37,7 +37,7 @@
 			<div class="bd-container">
 				<div class="main-mod">
 					<div class="main-mod-hd">
-						<span class="crumb"><a href="start.html">开发者首页</a></span>
+						<span class="crumb"><a class="ajax-click" href="#index">首页</a> | <a class="ajax-click" href="#project">项目简介</a></span> | <a class="ajax-click" href="#author">维护者</a>
 						<h2 id="J_title">首页</h2>
 					</div>
 					<div class="main-mod-bd">
@@ -91,6 +91,7 @@ YUI({combine:true}).use('node','io',function(Y){
 				complete:function(id,o){
 					Y.one('#J_main').set('innerHTML',o.responseText);
 					var pres = Y.all('#J_main pre');
+					Y.one('#J_title').set('innerHTML',key);
 					pres.each(function(node){
 						node.addClass('DlHighlight');
 						var code = node.get('innerHTML');	
@@ -100,7 +101,6 @@ YUI({combine:true}).use('node','io',function(Y){
 						});
 						var formatted = hl.doItNow(code);
 						node.set('innerHTML','<pre>'+formatted+'</pre>');//ie要加上<pre>
-						Y.one('#J_title').set('innerHTML',key);
 						/*
 						DlHighlight.HELPERS.highlightByName(name, "pre", {
 							lineNumbers:false
@@ -129,7 +129,7 @@ YUI({combine:true}).use('node','io',function(Y){
 		on:{
 			complete:function(id,o){
 				Y.one('#J_sider').set('innerHTML',o.responseText);
-				Y.all('#J_sider a').on('click',function(e){
+				Y.all('a.ajax-click').on('click',function(e){
 					showDetail(getK(e.target.get('href')));
 				});
 			}
