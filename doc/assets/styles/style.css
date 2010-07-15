@@ -47,7 +47,7 @@ h2 strong{display:block;display:inline-block;*display:inline;zoom:1;padding:3px 
 
 /*index*/
 .main-box {}
-.main-box .main-pic {margin-top:40px;margin-bottom:10px;padding-bottom:40px;background:url('assets/images/stamp.png') 70px 10px no-repeat;padding-left:340px;}
+.main-box .main-pic {margin-top:40px;margin-bottom:10px;padding-bottom:40px;background:url('../images/stamp.png') 70px 10px no-repeat;padding-left:340px;}
 .main-box .m-des {width:414px;font-size:14px;line-height:25px;padding:14px;background-color:#ffd34f;-moz-border-radius: 6px;-khtml-border-radius: 6px;-webkit-border-radius: 6px;border-radius: 6px;}
 .main-box .option {text-align:center;width:430px;margin-top:30px;}
 .main-box .option .button {
