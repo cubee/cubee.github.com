@@ -26,12 +26,8 @@
 				<li><a class="ajax-click" href="#postip">&bull; Y.Postip 相对提示</a></li>
 				<li><a class="ajax-click" href="#datecascade">&bull; Y.DateCascade 级联日期控件</a></li>
 				<li><a class="ajax-click" href="#checkall">&bull; Y.Checkall checkbox全选反选</a></li>
-<<<<<<< HEAD
-				<li><a class="ajax-click" href="#floatip">&bull; Y.Floatip 浮动提示</a></li>
-=======
 				<li><a class="ajax-click" href="#tip-input">&bull; Y.tipInput 文本输入框</a></li>
 				<li><a class="ajax-click" href="#floatip">&bull; Y.Floatip 浮动提示</a> <sup>beta</sup></li>
->>>>>>> jayli/master
 				<li><a class="ajax-click" href="#ticker">&bull; Y.Ticker ticker滚动</a> <sup>beta</sup></li>
 				<li><a class="ajax-click" href="#cutter">&bull; Y.Cutter Cutter图片展示</a> <sup>beta</sup></li>
 				<li><del><a class="ajax-click" href="#rankinglist">&bull; Y.RankingList 排行榜</a></del></li>
@@ -44,10 +40,6 @@
 				<!--在这里添加菜单项-->
 				<li><a class="ajax-click" href="#template">&bull; Template 通用HTML模板</a></li>
 				<li><a class="ajax-click" href="#using-css3">&bull; 适当使用CSS3</a></li>
-<<<<<<< HEAD
-				<li><a class="ajax-click" href="#cross-domain-autoheight">&bull; 跨域高度自适应</a></li>
-				<li><del><a class="ajax-click" href="#vote">&bull; vote 投票</a></del></li>
-=======
 				<li><del><a class="ajax-click" href="#vote">&bull; vote 投票</a></del></li>
 			</ul>
 		</div><!-- .navgroup -->
@@ -59,7 +51,6 @@
 				<li><a class="ajax-click" href="#sandbox-js">&bull; Sandbox</a></li>
 				<li><a class="ajax-click" href="#combo">&bull; Combo脚本</a></li>
 				<li><a class="ajax-click" href="#cdn-dev">&bull; CDN开发环境配置</a></li>
->>>>>>> jayli/master
 			</ul>
 		</div><!-- .navgroup -->
 	</div>
