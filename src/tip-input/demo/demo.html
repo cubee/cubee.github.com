@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>cubee-tipinput</title>
+<script type="text/javascript" src="http://cn.yimg.com/i/yui/3.0.0/build/yui/yui-min.js"></script>
+
+<style>
+	body { font: 14px Georgia,"Times New Roman",Times,sans-serif; color: #444; }
+	h1 { font-size: 26px; color: #00859D; font-family: Constantia,serif; }
+	h3 { font-size: 14px; color: #555; margin: 15px 0 5px; }
+	code {font-family:"Courier New"}
+	.yui-console {position:fixed !important;_position:absolute;}
+
+	.lightgray {color:#ccc;font-weight:bold;}
+	input {color:black;width:200px;font-size:14px;font-weight:normal;}
+
+</style>
+<script>
+<!--
+var Y = YUI({
+	combine:true,
+	modules:{
+		'tip-input':{//默认皮肤
+			fullpath:'../tipinput.js',
+			requires:['node']
+		}
+	}
+}).use('dump');
+//-->
+</script>
+</head>
+<body  class="yui-skin-sam">
+<h1>tip Input</h1>
+<hr size=1 />
+<h3>Y.tipInput</h3>
+默认状态
+<p><input type=text value="默认值" id="Input_1" /></p>
+focus选中
+<p><input type=text value="默认值" id="Input_2" /></p>
+<script>
+Y.use('tip-input',function(Y){
+	new Y.tipInput('Input_1');
+	new Y.tipInput('Input_2',{
+		autoSelecte:true
+	});
+});
+</script>
+<hr size=1 />
+
+
+
+
+
+
+
+<p style="clear:both">
+在ie6,ie7,firefox2,firefox3.0/3.5/3.6,safari4.0,opera9.62,chrome3.0下测试通过<br />
+msn:lijing00333@163.com<br />
+moreinfo:http://www.uedmagazine.com
+</p>
+
+
+
+</body>
+</html>
