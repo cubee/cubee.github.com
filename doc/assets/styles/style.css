@@ -6,7 +6,7 @@ a:hover{text-decoration:underline;}
 .main-mod-bd:after{clear:both;content:' ';display:block;font-size:0;line-height:0;visibility:hidden;width:0;height:0;}* html .main-mod-bd{height:1%;}
 .main-mod-bd{zoom:1;}
 #hd{height:100px;}
-#hd h1{width:300px;height:100px;overflow:hidden;text-indent: -100em;background:url('../images/cubeelogo.gif') no-repeat;margin:10px;float:left;}
+#hd h1{width:300px;height:100px;overflow:hidden;text-indent: -100em;background:url('../images/logo.png') no-repeat;margin:10px;float:left;}
 .navv{width:570px;;float:right;margin-top:26px;}
 .navv ul{padding:10px 20px;}
 .navv li a{text-shadow:1px 1px 1px #ffffff;font-weight:bold;color:#000;font-size:14px;}
@@ -42,3 +42,21 @@ h2 strong{display:block;display:inline-block;*display:inline;zoom:1;padding:3px 
 .dec dd dd p b{font-size:13px;font-family:Courier New;font-weight:bold;color:blue;padding-right:12px;}
 .loading {text-align:center;margin-top:10px;margin-bottom:10px;}
 .DlHighlight {width:576px;}
+
+
+
+/*index*/
+.main-box {}
+.main-box .main-pic {margin-top:40px;margin-bottom:10px;padding-bottom:40px;background:url('assets/images/stamp.png') 70px 10px no-repeat;padding-left:340px;}
+.main-box .m-des {width:414px;font-size:14px;line-height:25px;padding:14px;background-color:#ffd34f;-moz-border-radius: 6px;-khtml-border-radius: 6px;-webkit-border-radius: 6px;border-radius: 6px;}
+.main-box .option {text-align:center;width:430px;margin-top:30px;}
+.main-box .option .button {
+	display:block;
+	font-family:'微软雅黑','arial','simsun';
+	font-size:26px;
+	height:30px;
+	line-height:30px;
+	margin-bottom:16px;
+}
+.main-box .title {font-size:14px;padding-top:20px;}
+.main-box .my-des li{list-style:decimal inside;padding-left:10px;line-height:25px;}
