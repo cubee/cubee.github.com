@@ -47,16 +47,20 @@ h2 strong{display:block;display:inline-block;*display:inline;zoom:1;padding:3px 
 
 /*index*/
 .main-box {}
-.main-box .main-pic {margin-top:40px;margin-bottom:10px;padding-bottom:40px;background:url('assets/images/stamp.png') 70px 10px no-repeat;padding-left:340px;}
+.main-box .main-pic {margin-top:40px;margin-bottom:10px;padding-bottom:40px;background:url('../images/stamp.png') 70px 10px no-repeat;padding-left:340px;}
 .main-box .m-des {width:414px;font-size:14px;line-height:25px;padding:14px;background-color:#ffd34f;-moz-border-radius: 6px;-khtml-border-radius: 6px;-webkit-border-radius: 6px;border-radius: 6px;}
 .main-box .option {text-align:center;width:430px;margin-top:30px;}
-.main-box .option .button {
+.main-box .option a.button {
 	display:block;
-	font-family:'微软雅黑','arial','simsun';
+	font-family:'微软雅黑','黑体','arial','simsun';
 	font-size:26px;
-	height:30px;
-	line-height:30px;
+	height:40px;
+	line-height:37px;
 	margin-bottom:16px;
+}
+.main-box .option a.button:hover {
+	text-decoration:none;
+	background-color:#FFD34F;
 }
 .main-box .title {font-size:14px;padding-top:20px;}
 .main-box .my-des li{list-style:decimal inside;padding-left:10px;line-height:25px;}
