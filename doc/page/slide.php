@@ -34,8 +34,8 @@
 	</pre>
 <ul class="dec">
 	<li>#J_tab_3，必须指定</li>
-	<li>ul.tab-nav,控制导航,必须指定</li>
-	<li>ul.tab-nav li.selected,控制tab页签,必须指定</li>
+	<li>ul.tab-nav,控制导航,必须指定,容器内容可以为空，默认指定自然数为下标</li>
+	<li>ul.tab-nav li.selected,控制tab页签,若有li，则必须指定</li>
 	<li>div.tab-content，内容容器，必须指定</li>
 	<li>div.tab-content div.tab-pannel，内容面板，必须指定</li>
 </ul>
