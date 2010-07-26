@@ -171,7 +171,7 @@ YUI.add('box', function (Y) {
 				}
 			}
 			if(that.x)that.overlay.set('x',Number(that.x));
-			if(that.y)that.overlay.set('x',Number(that.y));
+			if(that.y)that.overlay.set('y',Number(that.y));
 			if(that.draggable){
 				that.overlay.headerNode.setStyle('cursor','move');
 				if(!that.overlay._posNode.dd){
