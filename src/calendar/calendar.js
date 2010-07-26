@@ -171,18 +171,51 @@ YUI.add('calendar', function (Y) {
 				Y.one('#'+that.id) = that.trigger
 			*/
 			for(var i = 0;i<that.action.length;i++){
-
+				
 				that.EV[1] = Y.one('#'+that.id).on(that.action[i],function(e){
 					e.halt();
-					if(that.con.getStyle('visibility') == 'hidden'){
-						that.show();
-					}else{
-						that.hide();
+					Y.log(e.type);
+					//如果focus和click同时存在的hack
+					var a = that.action;
+					if(that.inArray('click',a) && that.inArray('focus',a)){
+						if(e.type == 'focus'){
+							that.toggle();
+						}
+					}else if(that.inArray('click',a) && !that.inArray('focus',a)){
+						if(e.type == 'click'){
+							that.toggle();
+						}
+					}else if(!that.inArray('click',a) && that.inArray('focus',a)){
+						if(e.type == 'focus'){
+							that.toggle();
+						}
+					}else {
+						that.toggle();
 					}
+						
 				});
 
 			}
 			return this;
+		},
+		toggle:function(){
+			var that = this;
+			if(that.con.getStyle('visibility') == 'hidden'){
+				that.show();
+			}else{
+				that.hide();
+			}
+		},
+
+		inArray : function(v, a){
+			var o = false;
+			for(var i=0,m=a.length; i<m; i++){
+				if(a[i] == v){
+					o = true;
+					break;
+				}
+			}
+			return o;
 		},
 
 		/**
