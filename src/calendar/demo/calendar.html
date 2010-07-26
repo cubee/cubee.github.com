@@ -36,7 +36,7 @@
 <div id="J_all_events"></div>
 <hr size=1 />
 <h3>Popup日历，默认点击触发，点击空白处关闭</h3>
-<button id="J_popup" style="margin-left:50px;">click here!</button>
+<input type="text" id="J_popup" style="margin-left:50px;" />
 <hr size=1 />
 <h3>Popup日历，单选关闭，focus事件触发时弹出日历</h3>
 <a href="javascript:void(0);" id="J_popup_closeable" style="margin-left:50px;">click here!</a>
@@ -132,14 +132,15 @@ YUI({
 
 	//Popup日历,默认点击触发
 	new Y.Calendar('J_popup',{
-		popup:true	
+		popup:true	,
+		action:['click']
 	});
 
 	//Popup日历,单选关闭
 	new Y.Calendar('J_popup_closeable',{
 		popup:true,
 		closeable:true,
-		action:['click','focus']
+		action:['focus']
 	}).on('select',function(d){
 		alert(Y.dump(d));	
 	});

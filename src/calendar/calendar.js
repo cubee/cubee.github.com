@@ -174,21 +174,21 @@ YUI.add('calendar', function (Y) {
 				
 				that.EV[1] = Y.one('#'+that.id).on(that.action[i],function(e){
 					e.halt();
-					Y.log(e.type);
 					//如果focus和click同时存在的hack
+					Y.log(e.type);
 					var a = that.action;
-					if(that.inArray('click',a) && that.inArray('focus',a)){
+					if(that.inArray('click',a) && that.inArray('focus',a)){//同时含有
 						if(e.type == 'focus'){
 							that.toggle();
 						}
-					}else if(that.inArray('click',a) && !that.inArray('focus',a)){
+					}else if(that.inArray('click',a) && !that.inArray('focus',a)){//只有click
 						if(e.type == 'click'){
 							that.toggle();
 						}
-					}else if(!that.inArray('click',a) && that.inArray('focus',a)){
-						if(e.type == 'focus'){
+					}else if(!that.inArray('click',a) && that.inArray('focus',a)){//只有focus
+						setTimeout(function(){//为了跳过document.onclick事件
 							that.toggle();
-						}
+						},170);
 					}else {
 						that.toggle();
 					}
