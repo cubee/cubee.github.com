@@ -170,14 +170,18 @@ YUI.add('calendar', function (Y) {
 			/*
 				Y.one('#'+that.id) = that.trigger
 			*/
-			that.EV[1] = Y.one('#'+that.id).on('click',function(e){
-				e.halt();
-				if(that.con.getStyle('visibility') == 'hidden'){
-					that.show();
-				}else{
-					that.hide();
-				}
-			});
+			for(var i = 0;i<that.action.length;i++){
+
+				that.EV[1] = Y.one('#'+that.id).on(that.action[i],function(e){
+					e.halt();
+					if(that.con.getStyle('visibility') == 'hidden'){
+						that.show();
+					}else{
+						that.hide();
+					}
+				});
+
+			}
 			return this;
 		},
 
