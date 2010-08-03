@@ -344,7 +344,7 @@ YUI.add('box', function (Y) {
 			if(Y.one('#t-shade-tmp'))return this;
 			var node = Y.Node.create('<div id="t-shade-tmp" style="display: block; z-index: 999;background-color:black;left:0;position:absolute;top:0;width:100%;display:none"></div>');
 			node.setStyle('opacity',that.maskOpacity.toString());
-			node.setStyle('height',Y.one('body').get('docHeight'));
+			node.setStyle('height',Y.one('body').get('docHeight')+'px');
 			Y.one("html").setStyle('overflow','hidden');
 			Y.one('body').append(node);
 			node.setStyle('display','block');
