@@ -27,7 +27,8 @@
 				<li><a class="ajax-click" href="#datecascade">&bull; Y.DateCascade 级联日期控件</a></li>
 				<li><a class="ajax-click" href="#checkall">&bull; Y.Checkall checkbox全选反选</a></li>
 				<li><a class="ajax-click" href="#tip-input">&bull; Y.tipInput 文本输入框</a></li>
-				<li><a class="ajax-click" href="#floatip">&bull; Y.Floatip 浮动提示</a> <sup>beta</sup></li>
+				<li><a class="ajax-click" href="#floatip">&bull; Y.Floatip 浮动提示</a>
+				<li><a class="ajax-click" href="#banner">&bull; Y.Banner 对联广告</a><</li>
 				<li><a class="ajax-click" href="#ticker">&bull; Y.Ticker ticker滚动</a> <sup>beta</sup></li>
 				<li><a class="ajax-click" href="#cutter">&bull; Y.Cutter Cutter图片展示</a> <sup>beta</sup></li>
 				<li><del><a class="ajax-click" href="#rankinglist">&bull; Y.RankingList 排行榜</a></del></li>

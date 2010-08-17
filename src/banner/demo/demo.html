@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<title>淘宝网 - 淘！我喜欢</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="http://a.tbcdn.cn/tbsp/tbsp.css?t=200911050948.css"/>
+
+
+</head>
+
+<body>
+对联广告
+
+<div class="" style="height:10000px"> 
+</div>
+
+<script type="text/javascript" src="http://a.tbcdn.cn/yui/3.0.0/build/yui/yui.js"></script>
+<script>
+YUI({
+	debug:true,
+	charset:'gb18030',
+	root:"yui/3.0.0/build/",
+	comboBase:"http://a.tbcdn.cn/??",
+	filter:{
+	   'searchExp': "&", 
+	   'replaceStr': ","
+	},
+	combine:true,
+	loadOptional:true,
+	modules:{
+		'banner':{
+			fullpath:'../banner.js',
+			requires:['node','anim']
+		}
+	}
+}).use('banner',function(Y){
+	new Y.Banner({
+		width:90,
+		height:200,
+		imgs:[
+			{
+				img:'http://img02.taobaocdn.com/tps/i2/T1k9pIXipsXXXXXXXX-480-190.jpg',
+				href:''
+			},
+			{
+				img:'http://img02.taobaocdn.com/tps/i2/T1k9pIXipsXXXXXXXX-480-190.jpg',
+				href:''
+			}
+		],
+		span:950,
+		scroll:true,
+		text:'x'
+	});
+});
+</script>
+
+
+</body>
+</html>
