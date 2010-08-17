@@ -71,6 +71,7 @@ var calendar = new Y.Calendar('J_calendar').on('select',function(d){
 				<p><b>date</b>:{date} 默认显示该日期所在的月份，默认为当天</p>
 				<p><b>navigator</b>:{boolean} 是否可以选择跳转的月份，默认为true</p>
 				<p><b>withtime</b>:{boolean} 是否可选择时间，默认为false</p>
+				<p><b>action</b>:{array} popup为true的情况下，触发日历弹出的事件类型，格式为['click','mouseover'] ,默认为click</p>
 			</dd>
 		</dl>
 	</dd>

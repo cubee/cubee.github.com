@@ -50,7 +50,21 @@ YUI.add('slide',function(Y){
 			var that = this;
 			var con = that.con = Y.one('#'+that.id);
 			that.tabs = con.queryAll('.'+that.navClass+' li');
-			that.length = that.tabs.size();
+			var tmp_pannels = con.queryAll('.'+that.contentClass+' div.'+that.pannelClass);
+			that.length = tmp_pannels.size();
+			if(that.tabs.size() == 0){//nav.li没有指定，默认指定1234
+				var t_con = con.queryAll('.'+that.navClass);
+				var t_str = '';
+				for(var i = 0;i<that.length;i++){
+					var t_str_prefix = '';
+					if(i == 0){
+						t_str_prefix = that.selectedClass;
+					}
+					t_str += '<li class="'+t_str_prefix+'"><a href="javascript:void(0);">'+(i+1)+'</a></li>';
+				}
+				t_con.set('innerHTML',t_str);
+			}
+			that.tabs = con.queryAll('.'+that.navClass+' li');//重新赋值
 			that.animcon = con.query('.'+that.contentClass);
 			//that.pannels.setStyle('width',that.animcon.get('region').width+'px');
 			//that.pannels.setStyle('height',that.animcon.get('region').height+'px');

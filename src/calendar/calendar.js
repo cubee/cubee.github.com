@@ -170,15 +170,52 @@ YUI.add('calendar', function (Y) {
 			/*
 				Y.one('#'+that.id) = that.trigger
 			*/
-			that.EV[1] = Y.one('#'+that.id).on('click',function(e){
-				e.halt();
-				if(that.con.getStyle('visibility') == 'hidden'){
-					that.show();
-				}else{
-					that.hide();
-				}
-			});
+			for(var i = 0;i<that.action.length;i++){
+				
+				that.EV[1] = Y.one('#'+that.id).on(that.action[i],function(e){
+					e.halt();
+					//如果focus和click同时存在的hack
+					Y.log(e.type);
+					var a = that.action;
+					if(that.inArray('click',a) && that.inArray('focus',a)){//同时含有
+						if(e.type == 'focus'){
+							that.toggle();
+						}
+					}else if(that.inArray('click',a) && !that.inArray('focus',a)){//只有click
+						if(e.type == 'click'){
+							that.toggle();
+						}
+					}else if(!that.inArray('click',a) && that.inArray('focus',a)){//只有focus
+						setTimeout(function(){//为了跳过document.onclick事件
+							that.toggle();
+						},170);
+					}else {
+						that.toggle();
+					}
+						
+				});
+
+			}
 			return this;
+		},
+		toggle:function(){
+			var that = this;
+			if(that.con.getStyle('visibility') == 'hidden'){
+				that.show();
+			}else{
+				that.hide();
+			}
+		},
+
+		inArray : function(v, a){
+			var o = false;
+			for(var i=0,m=a.length; i<m; i++){
+				if(a[i] == v){
+					o = true;
+					break;
+				}
+			}
+			return o;
 		},
 
 		/**
