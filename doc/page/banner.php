@@ -70,6 +70,7 @@ new Y.Banner({
 				<p><b>spread</b>:{boolean} 页面宽度太窄时，广告是否往中间挤压，默认为false</p>
 				<p><b>text</b>:{string} 关闭的文案，默认为'x'</p>
 				<p><b>closeable</b>:{boolean} 是否显示关闭按钮，默认为true</p>
+				<p><b>autoHide</b>:{boolean} 浏览器宽度不够时是否自动隐藏，默认为true</p>
 
 			</dd>
 			<dt>方法：</dt>	

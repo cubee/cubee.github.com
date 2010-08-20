@@ -10,7 +10,7 @@ YUI.add('banner',function(Y){
 				'		<a href="" class="fk-a" target=_blank>',
 				'			<img src="http://cn.yimg.com/space.gif" class="fk-img" />',
 				'		</a>',
-				'		<p style="line-height:5px;*line-height:12px;"><a href="javascript:void(0);" class="close">x</a></p>',
+				'		<p style="line-height:5px;*line-height:12px;"><a href="javascript:void(0);" class="close">关闭</a></p>',
 				'	</div>'
 				//'	',
 				//'	<div class="fk-r" style="float:right"> ',
@@ -30,8 +30,8 @@ YUI.add('banner',function(Y){
 			var con = that.con = [];
 			con.push(Y.Node.create(this.html));
 			con.push(Y.Node.create(this.html));
-			Y.one('body').prepend(con[0]);
-			Y.one('body').prepend(con[1]);
+			Y.one('body').append(con[0]);
+			Y.one('body').append(con[1]);
 
 			that.buildParam(config);
 			that.initUI();
@@ -53,10 +53,12 @@ YUI.add('banner',function(Y){
 			});
 			con[0].query('.close').on('click',function(e){
 				e.halt();
+				that._hide = true;
 				that.hide();
 			});
 			con[1].query('.close').on('click',function(e){
 				e.halt();
+				that._hide = true;
 				that.hide();
 			});
 
@@ -67,20 +69,28 @@ YUI.add('banner',function(Y){
 			that.con[0].setStyle('display','none');
 			that.con[1].setStyle('display','none');
 		},
+		show:function(){
+			var that = this;
+			if(that._hide == false && that.con[0].getStyle('display') == 'none'){
+				that.con[0].setStyle('display','block');
+				that.con[1].setStyle('display','block');
+			}
+		},
 		/**
 		 * 构建参数
 		 */
 		buildParam:function(o){
 			var o = o || {};
 			this.width = (typeof o.width == 'undefined'||o.width == null)?300:o.width;
+			this.autohide = (typeof o.autohide == 'undefined'||o.autohide == null)?false:o.autohide;
 			this.height = (typeof o.height == 'undefined'||o.height == null)?300:o.height;
 			this.span = (typeof o.span == 'undefined'||o.span == null)?300:o.span;
 			this.scroll = (typeof o.scroll == 'undefined'||o.scroll == null)?true:o.scroll;
 			this.anim = (typeof o.anim == 'undefined'||o.anim == null)?true:o.anim;
 			this.top = (typeof o.top == 'undefined'||o.top == null)?100:o.top;
 			this.spread  = (typeof o.spread  == 'undefined'||o.spread  == null)?false:o.spread;
-			this.text  = (typeof o.text  == 'undefined'||o.text  == null)?'关闭':o.text;
 			this.closeable = (typeof o.closeable == 'undefined'||o.closeable == null)?true:o.closeable;
+			this._hide = false;
 			/*
 				[
 					{
@@ -128,6 +138,16 @@ YUI.add('banner',function(Y){
 				top:top,
 				left:(viewWidth - (that.width*2+span))/2 + scrollLeft + (that.width+span)
 			});
+
+			if(that.autohide == true){
+				if(viewWidth <= (that.width*2+that.span)){
+					that.hide();
+					return;
+				}else{
+					that.show();
+				}
+
+			}
 			
 			
 			for(var i = 0;i<2;i++){
@@ -181,9 +201,6 @@ YUI.add('banner',function(Y){
 	
 			con[0].setStyle('display','block');
 			con[1].setStyle('display','block');
-
-			con[0].query('.close').set('innerHTML',that.text);
-			con[1].query('.close').set('innerHTML',that.text);
 
 			if(!that.closeable){
 				con[0].query('.close').setStyle('display','none');
