@@ -397,6 +397,7 @@ YUI.add('box', function (Y) {
 		opt.head = headstr;
 		opt.body = msg;
 		opt.foot = '<div align=right><button class="okbtn">'+btnText+'</div>';
+		opt._onload = opt.onload || new Function;
 		opt.onload = function(box){
 			var node = box.overlay._posNode;
 			node.query('.okbtn').on('click',function(e){
@@ -411,6 +412,7 @@ YUI.add('box', function (Y) {
 					box.close();
 				});
 			}catch(e){}
+			opt._onload(box);
 		};
 
 		var box = new Y.Box(opt);
@@ -460,6 +462,7 @@ YUI.add('box', function (Y) {
 		opt.head = headstr;
 		opt.body = msg;
 		opt.foot = '<div align=right><button class="yesbtn">'+yesText+'</button>&nbsp;<button class="nobtn">'+noText+'</button>&nbsp;'+canclestr+'</div>';
+		opt._onload = opt.onload || new Function;
 		opt.onload = function(box){
 			var node = box.overlay._posNode;
 			node.query('.yesbtn').on('click',function(e){
@@ -485,6 +488,7 @@ YUI.add('box', function (Y) {
 					box.close();
 				});
 			}catch(e){}
+			opt._onload(box);
 		};
 
 		var box = new Y.Box(opt);
