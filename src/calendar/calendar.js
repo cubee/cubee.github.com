@@ -580,7 +580,7 @@ YUI.add('calendar', function (Y) {
 				});
 				//确定的动作
 				that.button.on('click',function(e){
-					var d = that.fathor.dt_date;
+					var d = typeof that.fathor.dt_date == 'undefined'?that.fathor.date:that.fathor.dt_date;
 					d.setHours(that.get('h'));
 					d.setMinutes(that.get('m'));
 					d.setSeconds(that.get('s'));
