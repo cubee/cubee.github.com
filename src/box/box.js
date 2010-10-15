@@ -88,7 +88,7 @@ YUI.add('box', function (Y) {
 			//处理zindex
 			that.bringToTop();
 			that.overlay._posNode.on('focus',function(e){
-				e.target.blur();
+				//e.target.blur();
 			});
 			that.overlay._posNode.on('mousedown',function(e){
 				var widget = Y.Widget.getByNode(e.target);
