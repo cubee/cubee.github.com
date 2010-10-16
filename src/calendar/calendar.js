@@ -722,6 +722,38 @@ YUI.add('calendar', function (Y) {
 					'</p>'
 			].join("");
 
+            //常用的数据格式的验证
+            this.Verify = function() {
+
+                var isDay = function(n) {
+                    if (!/\d+/i.test(n))return false;
+                    n = Number(n);
+                    return !(n < 1 || n > 31);
+
+                },
+                    isYear = function(n) {
+                        if (!/\d+/i.test(n))return false;
+                        n = Number(n);
+                        return !(n < 100 || n > 10000);
+
+                    },
+                    isMonth = function(n) {
+                        if (!/\d+/i.test(n))return false;
+                        n = Number(n);
+                        return !(n < 1 || n > 12);
+
+
+                    };
+
+                return {
+                    isDay:isDay,
+                    isYear:isYear,
+                    isMonth:isMonth
+
+                };
+
+            };
+
 
 			//方法
 			/**
@@ -818,22 +850,28 @@ YUI.add('calendar', function (Y) {
 						setime_node.set('innerHTML',in_str);
 						setime_node.removeClass('hidden');
 						con.query('input').on('keydown',function(e){
+							var _month = con.query('.setime').query('select').get('value');
+							var _year  = con.query('.setime').query('input').get('value');
 							if(e.keyCode == 38){//up
+								if (!cc.Verify().isYear(_year))return;
+                                if (!cc.Verify().isMonth(_month))return;
 								e.target.set('value',Number(e.target.get('value'))+1);
 								e.target.select();
 							}
 							if(e.keyCode == 40){//down
+								if (!cc.Verify().isYear(_year))return;
+                                if (!cc.Verify().isMonth(_month))return;
 								e.target.set('value',Number(e.target.get('value'))-1);
 								e.target.select();
 							}
 							if(e.keyCode == 13){//enter
-								var _month = con.query('.setime').query('select').get('value');
-								var _year  = con.query('.setime').query('input').get('value');
+								con.query('.setime').addClass('hidden');
+								if (!cc.Verify().isYear(_year))return;
+                                if (!cc.Verify().isMonth(_month))return;
 								cc.fathor.render({
 									date:new Date(_year+'/'+_month+'/01')
 								})
 								cc.fathor.EventCenter.fire('switch',new Date(_year+'/'+_month+'/01'));
-								con.query('.setime').addClass('hidden');
 							}
 						});
 					});
@@ -842,11 +880,13 @@ YUI.add('calendar', function (Y) {
 						if(e.target.hasClass('ok')){
 							var _month = con.query('.setime').query('select').get('value');
 							var _year  = con.query('.setime').query('input').get('value');
+							con.query('.setime').addClass('hidden');
+							if (!cc.Verify().isYear(_year))return;
+                            if (!cc.Verify().isMonth(_month))return;
 							cc.fathor.render({
 								date:new Date(_year+'/'+_month+'/01')
 							})
 							cc.fathor.EventCenter.fire('switch',new Date(_year+'/'+_month+'/01'));
-							con.query('.setime').addClass('hidden');
 						}else if(e.target.hasClass('cancel')){
 							con.query('.setime').addClass('hidden');
 						}
