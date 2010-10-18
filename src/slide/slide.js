@@ -178,6 +178,12 @@ YUI.add('slide',function(Y){
 		//上一个
 		previous:function(){
 			var that = this;
+			//防止旋转木马状态下切换过快带来的晃眼
+			try{
+				if(that.anim.get('running') && that.carousel){
+					return this;
+				}
+			}catch(e){}
 			var _index = that.current_tab+that.length-1;
 			if(_index >= that.length){
 				_index = _index % that.length;
@@ -195,6 +201,12 @@ YUI.add('slide',function(Y){
 		//下一个
 		next:function(){
 			var that = this;
+			//防止旋转木马状态下切换过快带来的晃眼
+			try{
+				if(that.anim.get('running') && that.carousel){
+					return this;
+				}
+			}catch(e){}
 			var _index = that.current_tab+1;
 			if(_index >= that.length){
 				_index = _index % that.length;
