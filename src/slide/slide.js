@@ -133,11 +133,11 @@ YUI.add('slide',function(Y){
 			}
 			if(that.hoverStop){
 				that.con.delegate('mouseover',function(e){
-					e.halt();
+					//e.halt();
 					if(that.autoSlide)that.stop();
 				},'.'+that.contentClass+' div.'+that.pannelClass);
 				that.con.delegate('mouseout',function(e){
-					e.halt();
+					//e.halt();
 					if(that.autoSlide)that.play();
 				},'.'+that.contentClass+' div.'+that.pannelClass);
 			}
