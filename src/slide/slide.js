@@ -24,6 +24,14 @@ YUI.add('slide',function(Y){
 				pannelnode:that.pannels.item(0)
 			});
 
+
+			if(that.reverse){
+				var _t ;
+				_t = that.previous,
+				that.previous = that.next,
+				that.next = _t;
+			}
+
 			return this;
 		},
 		/**
@@ -163,6 +171,7 @@ YUI.add('slide',function(Y){
 			that.before_switch = (typeof o.before_switch== 'undefined' || o.before_switch == null)?new Function:o.before_switch;
 			that.ready = (typeof o.ready == 'undefined' || o.ready == null)?new Function:o.ready;
 			that.carousel = (typeof o.carousel == 'undefined' || o.carousel == null)?false:o.carousel;
+			that.reverse = (typeof o.reverse == 'undefined' || o.reverse == null)?false:o.reverse;
 			that.id = that.id;
 			//构造参数
 			that.tabs = [];
@@ -171,6 +180,9 @@ YUI.add('slide',function(Y){
 			that.timer = null;
 			//第一次载入的时候赋值为-1
 			that.current_tab = -1;//0,1,2,3...
+			if(that.carousel && that.reverse){
+				that.current_tab = 0;
+			}
 			return this;
 			
 		},
