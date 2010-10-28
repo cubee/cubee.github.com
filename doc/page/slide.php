@@ -136,6 +136,7 @@ new Y.Slide('J_tab_1',{
 				<p><b>before_switch</b>:{function} 切换之前执行的动作，参数同switch事件的参数，返回true，继续执行，返回false，停止执行</p>
 				<p><b>ready</b>:{function} 初始化完成后的回调，参数同switch事件的参数，当前index为0</p>
 				<p><b>carousel</b>:{boolean} 是否以旋转木马形式播放，默认为false</p>
+				<p><b>reverse</b>:{boolean} "播放下一个"和"播放上一个"对调，默认为false</p>
 				</dd>
 		</dl>
 		
