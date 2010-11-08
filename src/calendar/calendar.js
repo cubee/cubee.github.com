@@ -808,9 +808,9 @@ YUI.add('calendar', function (Y) {
 					if(e.target.hasClass('disabled'))return;
 					var selectedd = Number(e.target.get('innerHTML'));
 					var d = new Date();
-					d.setDate(selectedd);
-					d.setMonth(cc.month);
 					d.setYear(cc.year);
+					d.setMonth(cc.month);
+					d.setDate(selectedd);
 					//that.callback(d);
 					//datetime的date
 					cc.fathor.dt_date = d;
