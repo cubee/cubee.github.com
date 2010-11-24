@@ -1,0 +1,39 @@
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{padding:0;margin:0;}
+table{border-collapse:collapse;border-spacing:0}
+fieldset,img{border:0}
+address,caption,cite,code,dfn,em,th,var{font-weight:normal;font-style:normal}
+strong, b{ font-weight: bold; }
+ol,ul{list-style:none}
+caption,th{text-align:left}
+h1,h2,h3,h4,h5,h6{font-weight:700;}
+h1{font-size:18px}
+h2{font-size:16px}
+h3{font-size:14px}
+h4{font-size:14px}
+h5{font-size:12px}
+h6{font-size:12px}
+body{margin:0 10px}
+q:before,q:after{content:''}
+abbr,acronym{border:0}
+hr {margin: 0;padding: 0;border: 0;color: #CDCDCD;background-color: #CDCDCD;height: 1px}
+blockquote{color:#666;font-style:italic;}
+sup,sub{line-height:0}
+abbr,acronym{border-bottom:1px dotted #666}
+pre{white-space:pre;}
+pre,code,tt{font:12px 'andale mono', 'lucida console', monospace;line-height:1.5}
+.clearfix:after {content: "\0020"; display: block; height: 0;clear: both; visibility: hidden; }
+.clearfix {zoom: 1;}
+a{font-size:12px;cursor:pointer}
+a:link,a:visited{color:#FFFFFF; text-decoration:none; font-size:12px}
+a:hover{text-decoration:none;}
+h1{padding:10px; background-color:#333; color:#EFEFEF; }
+h2{ margin-top:20px; padding:10px}
+pre{ padding:10px }
+.table-box{ padding:10px}
+table.KS-table{border-top: none;border-right:none;border-bottom: 1px solid #6790ad;border-left: 1px solid #6790ad;}
+table.KS-table caption{ height:40px; line-height:40px; border:1px solid #6790ad; border-bottom:0 none; padding-left:10px; font-size:12px; font-weight:700; color:#F00;background-color:#EFF3F8}
+table.KS-table td,table.KS-table th{border-top:1px solid #6790ad;border-right: 1px solid #6790ad;  border-bottom:none;border-left: 0; padding:3px }
+table.KS-table th{ height:30px;background-color:#EFF3F8;font-weight:bold }
+
+
