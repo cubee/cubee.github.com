@@ -1,24 +1,24 @@
 /**
- * radio.js µã»÷¸ßÁÁ¿Ø¼ş
- * author:lover_116@163.com ÁéÓñ
+ * radio.js ç‚¹å‡»é«˜äº®æ§ä»¶
+ * author:lover_116@163.com çµç‰
  * @class Y.Radio
- * @param {string} ÈİÆ÷»òÕß´¥µãselector 
- * @param {object} ÅäÖÃÏî
- * @return {object} Éú³ÉÒ»¸öradioÊµÀı
+ * @param {string} å®¹å™¨æˆ–è€…è§¦ç‚¹selector 
+ * @param {object} é…ç½®é¡¹
+ * @return {object} ç”Ÿæˆä¸€ä¸ªradioå®ä¾‹
  * @requires {'node'}
  * 
- * Y.Radio£º	
- *	ËµÃ÷£º	radio¹¹ÔìÆ÷£¬Í¨¹ınew Y.RadioÀ´renderÒ»¸öradio
- *	Ê¹ÓÃ£º	new Y.Radio(selector,config)
- *	²ÎÊı:	selector:{string}ÈİÆ÷Ñ¡ÔñÆ÷£¬»ñÈ¡¶à¸önode
- *	ÅäÖÃ£º	showindex {num} Ä¬ÈÏÏÔÊ¾ËùÒı
- *			onload:{function} ³õÊ¼»¯À©Õ¹²Ù×÷
- *			disable:{function} ´¥·¢ÊÂ¼ş£¬²»¿Éµã»÷£¬²ÎÊıÎªArray,[1,2,3]²»¿Éµã»÷µÄËùÒı£¬Ä¬ÈÏÈ«²¿²»¿Éµã»÷
- *			enable:{function} »Ö¸´¿Éµã»÷£¬²ÎÊıÎªArray,[1,2,3]»Ö¸´µã»÷£¬Ä¬ÈÏÈ«²¿¿Éµã
- *			closeable:{boolean} ÊÇ·ñµ¥Ñ¡¹Ø±Õ£¨µ¯³ö×´Ì¬ÏÂÆğ×÷ÓÃ£©£¬Ä¬ÈÏÎªfalse
- *			anchor:{boolean}ÊÇ·ñÓĞÃªµãĞ§¹û£¬È¥µôe.halt()
- *			range:{start:date,end:date} Ä¬ÈÏÑ¡Ôñ·¶Î§
- *			refresh:{function} ÖØĞÂ¼ÓÔØ
+ * Y.Radioï¼š	
+ *	è¯´æ˜ï¼š	radioæ„é€ å™¨ï¼Œé€šè¿‡new Y.Radioæ¥renderä¸€ä¸ªradio
+ *	ä½¿ç”¨ï¼š	new Y.Radio(selector,config)
+ *	å‚æ•°:	selector:{string}å®¹å™¨é€‰æ‹©å™¨ï¼Œè·å–å¤šä¸ªnode
+ *	é…ç½®ï¼š	showindex {num} é»˜è®¤æ˜¾ç¤ºæ‰€å¼•
+ *			onload:{function} åˆå§‹åŒ–æ‰©å±•æ“ä½œ
+ *			disable:{function} è§¦å‘äº‹ä»¶ï¼Œä¸å¯ç‚¹å‡»ï¼Œå‚æ•°ä¸ºArray,[1,2,3]ä¸å¯ç‚¹å‡»çš„æ‰€å¼•ï¼Œé»˜è®¤å…¨éƒ¨ä¸å¯ç‚¹å‡»
+ *			enable:{function} æ¢å¤å¯ç‚¹å‡»ï¼Œå‚æ•°ä¸ºArray,[1,2,3]æ¢å¤ç‚¹å‡»ï¼Œé»˜è®¤å…¨éƒ¨å¯ç‚¹
+ *			closeable:{boolean} æ˜¯å¦å•é€‰å…³é—­ï¼ˆå¼¹å‡ºçŠ¶æ€ä¸‹èµ·ä½œç”¨ï¼‰ï¼Œé»˜è®¤ä¸ºfalse
+ *			anchor:{boolean}æ˜¯å¦æœ‰é”šç‚¹æ•ˆæœï¼Œå»æ‰e.halt()
+ *			range:{start:date,end:date} é»˜è®¤é€‰æ‹©èŒƒå›´
+ *			refresh:{function} é‡æ–°åŠ è½½
  */
 YUI.namespace('Y.Radio');
 YUI.add('radio',function(Y){
@@ -27,9 +27,9 @@ YUI.add('radio',function(Y){
 	};
 	Y.Radio.prototype = {
 		/**
-		 * ³õÊ¼»¯
-		 * @param {selector}ÈİÆ÷Ñ¡ÔñÆ÷
-		 * @param {config}³õÊ¼ÅäÖÃ
+		 * åˆå§‹åŒ–
+		 * @param {selector}å®¹å™¨é€‰æ‹©å™¨
+		 * @param {config}åˆå§‹é…ç½®
 		 */
 		init:function(selector,config){
 			this.nodes = Y.one(selector).get('tagName') == 'A'?Y.all(selector):Y.all(selector).get('parentNode');
@@ -38,7 +38,7 @@ YUI.add('radio',function(Y){
 			this.buildParam(config);
 		},
 		/**
-		 * ÊÂ¼şÖĞĞÄ Ôö¼Ó×Ô¶¨ÒåchangeÊÂ¼ş
+		 * äº‹ä»¶ä¸­å¿ƒ å¢åŠ è‡ªå®šä¹‰changeäº‹ä»¶
 		 * @return {object}
 		 */
 		buildEventCenter:function(){
@@ -51,9 +51,9 @@ YUI.add('radio',function(Y){
 			return this;
 		},
 		/**
-		 * °ó¶¨clickÊÂ¼şº¯Êı
+		 * ç»‘å®šclickäº‹ä»¶å‡½æ•°
 		 * @mether bind 
-		 * @param {node} object node¶ÔÏó
+		 * @param {node} object nodeå¯¹è±¡
 		 * @default {null} this.nodes
 		 */
 		bind:function(node){
@@ -76,11 +76,11 @@ YUI.add('radio',function(Y){
 			}
 		},
 		/**
-		 * °ó¶¨ÊÂ¼şº¯Êı
+		 * ç»‘å®šäº‹ä»¶å‡½æ•°
 		 * @mether on 
 		 * @type event 
-		 * @param {type} string ×Ô¶¨ÒåÊ±¼äÃû
-		 * @param {foo} function ÊµÏÖ·½·¨
+		 * @param {type} string è‡ªå®šä¹‰æ—¶é—´å
+		 * @param {foo} function å®ç°æ–¹æ³•
 		 */
 		on:function(type,foo){
 			var that = this;
@@ -89,8 +89,8 @@ YUI.add('radio',function(Y){
 		},
 		/**
 		 * @mether changeEvent
-		 * changeÊÂ¼şµÄ¾ßÌåÊµÏÖ
-		 * @param {e} µ±Ç°´¥·¢node
+		 * changeäº‹ä»¶çš„å…·ä½“å®ç°
+		 * @param {e} å½“å‰è§¦å‘node
 		 */
 		changeEvent : function(e){
 			var isA = e.target.get('tagName') == 'A'?true:false;
@@ -98,13 +98,13 @@ YUI.add('radio',function(Y){
 			var _i = this.nodes.indexOf(_n);
 			this.nodes.removeClass('selected');
 			_n.addClass('selected');
-			//´«µİchangeÊÂ¼şµÄ²ÎÊı
+			//ä¼ é€’changeäº‹ä»¶çš„å‚æ•°
 			this.EventCenter.fire('change',{index:_i,show:"no"});
 		},
 		/**
 		 * @attribute defaultShow
 		 * @type num
-		 * @param {i} ÏÔÊ¾ËùÒı´Ó1¿ªÊ¼
+		 * @param {i} æ˜¾ç¤ºæ‰€å¼•ä»1å¼€å§‹
 		 * @default null
 		 */
 		defaultShow : function(i){
@@ -113,11 +113,11 @@ YUI.add('radio',function(Y){
 			return this;
 		},
 		/**
-		 * Ê§Ğ§ÊÂ¼şÊµÏÖ
+		 * å¤±æ•ˆäº‹ä»¶å®ç°
 		 * @mether disable 
 		 * @type function
-		 * @param {param} array ½ÚµãË÷Òı
-		 * @default null,ËùÓĞ½ÚµãÊ§Ğ§
+		 * @param {param} array èŠ‚ç‚¹ç´¢å¼•
+		 * @default null,æ‰€æœ‰èŠ‚ç‚¹å¤±æ•ˆ
 		 */
 		disable : function(param){
 			if(typeof param === 'undefined' || param === null){
@@ -133,11 +133,11 @@ YUI.add('radio',function(Y){
 			return this;
 		},
 		/**
-		 * »Ö¸´ÊÂ¼şÊµÏÖ
+		 * æ¢å¤äº‹ä»¶å®ç°
 		 * @mether enable 
 		 * @type function
-		 * @param {param} array ½ÚµãË÷Òı
-		 * @default null,ËùÓĞ½Úµã»Ö¸´
+		 * @param {param} array èŠ‚ç‚¹ç´¢å¼•
+		 * @default null,æ‰€æœ‰èŠ‚ç‚¹æ¢å¤
 		 */
 		enable : function(param){
 			if(typeof param === 'undefined' || param === null){
@@ -153,7 +153,7 @@ YUI.add('radio',function(Y){
 			return this;
 		},
 		/**
-		 * ÖØĞÂ¼ÓÔØ 
+		 * é‡æ–°åŠ è½½ 
 		 * @mether refresh 
 		 * @type function
 		 */
@@ -163,10 +163,10 @@ YUI.add('radio',function(Y){
 			return this;
 		},
 		/**
-		 * ²ÎÊı¹¹Ôì 
+		 * å‚æ•°æ„é€  
 		 * @mether buildParam 
 		 * @type function
-		 * @param {e} object ¹¹Ôì²ÎÊı
+		 * @param {e} object æ„é€ å‚æ•°
 		 */
 		buildParam : function(o){
 			if(typeof o === 'undefined' || o === null){
