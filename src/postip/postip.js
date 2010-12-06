@@ -95,6 +95,10 @@ YUI.add('Postip',function(Y){
 						//debugger;
 					if(el.getAttribute('rel')){
 						that.oTip.one('.J-tipbox').set('innerHTML',el.getAttribute('rel'));
+						if(/6/i.test(Y.UA.ie)){
+							//如果ie6下重新设置iframe高度，遮盖select.支持高度自适应。
+							that.mark.setStyle('height',that.oTip.get('clientHeight') + 'px');
+						} 
 					}
 				}
 				that.isShow = true;

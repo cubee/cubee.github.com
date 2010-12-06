@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="zh">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="Radio选择" />
+	<meta name="Description" content="Radio选择" />
+	<title>Radio选择</title>
+	<script type="text/javascript" src="http://cn.yimg.com/i/yui/3.0.0/build/yui/yui-min.js"></script>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<style>
+/* radio */
+.inselector li{float:left;margin-right:6px;}
+.inselector li a{padding:8px;display:block;border:1px solid #acaba7;color:#000}
+.inselector li a:hover{border-color:#f36523;text-decoration:none;}
+.inselector li a.selected{padding:7px;border:2px solid #f36523;background:url(http://img05.taobaocdn.com/tps/i5/T1F5dBXe8yXXXXXXXX-5-5.png) no-repeat 100% 100%;}
+.inselector li a:focus{outline:none;}
+.inselector li .nohover:hover{border-color:#aaa;cursor:auto}
+.inselector li .nohover{background:#e1dec8}
+.inselector .disabled a, .inselector .disabled a:hover, .inselector .disabled a.selected, .inselector .disabled a.selected:hover{background:#F6EEEB;border:1px solid #C9C7BA;padding:8px;color:#9CA19B;cursor:default}
+.kuan-desc{clear:both;}
+.kuan-desc li{padding:8px 0;}
+.kuan-desc .hidden{display:none}
+/* radio light  */
+.light .inselector li a{position:relative;height:45px;padding:0px}
+.light .inselector li a.w50{width:50px}
+.light .inselector li a.w70{width:70px}
+.light .inselector li a.w88{width:88px}
+.light .inselector li a.w120{width:120px}
+.light .inselector li a.w129{width:129px}
+.light .inselector li a.selected em{display:block;width:5px;height:5px;background:url(http://img05.taobaocdn.com/tps/i5/T1F5dBXe8yXXXXXXXX-5-5.png) left top no-repeat;position:absolute;right:0px;bottom:0px;top:40px}
+.light .inselector li a{background:url(http://img01.taobaocdn.com/tps/i1/T1xFFOXmVnXXXXXXXX-459-86.png) -999em center no-repeat}
+.light .inselector li.c1 a.selected{background-position:10px 7px;height:43px}
+.light .inselector li.c2 a.selected{background-position:-47px 7px;height:43px}
+.light .inselector li.c3 a.selected{background-position:-127px 7px;height:43px}
+.light .inselector li.c4 a.selected{background-position:-218px 7px;height:43px}
+.light .inselector li.c5 a.selected{background-position:-336px 7px;height:43px}
+.light .inselector li.c1 a{background-position:11px -40px}
+.light .inselector li.c2 a{background-position:-48px -40px}
+.light .inselector li.c3 a{background-position:-128px -40px}
+.light .inselector li.c4 a{background-position:-219px -40px}
+.light .inselector li.c5 a{background-position:-337px -40px}
+.light .inselector li.c1 a:hover{background-position:10px 7px}
+.light .inselector li.c2 a:hover{background-position:-49px 7px}
+.light .inselector li.c3 a:hover{background-position:-129px 7px}
+.light .inselector li.c4 a:hover{background-position:-220px 7px}
+.light .inselector li.c5 a:hover{background-position:-338px 7px}
+.light .inselector li.c1 .selected:hover{background-position:10px 7px}
+.light .inselector li.c2 .selected:hover{background-position:-47px 7px}
+.light .inselector li.c3 .selected:hover{background-position:-127px 7px}
+.light .inselector li.c4 .selected:hover{background-position:-218px 7px}
+.light .inselector li.c5 .selected:hover{background-position:-336px 7px}
+
+</style>
+</head>
+<body>
+<h1>【YUI3组件】Radio点击高亮</h1>
+<br/>
+<table cellspacing="0" cellpadding="0" border="0" width="600" class="KS-table">
+    <tbody><tr>
+      <th>参数/方法：</th>
+      <th>类型</th>
+      <th>描述</th>
+    </tr>
+    <tr>
+      <td width="20%">showindex</td>
+      <td>int</td>
+      <td>初始话高亮哪个，默认不高亮</td>
+    </tr>
+    <tr>
+      <td>onload</td>
+      <td>function</td>
+      <td>加载时初始化函数，参数o为本身对象，可在初始化时不可用，如：o.disable()</td>
+    </tr>
+    <tr>
+      <td>disable</td>
+      <td>function</td>
+      <td>参数为数组Array,[1，2，3]第几个无效，默认为全部无效。</td>
+    </tr>
+    <tr>
+      <td>enable</td>
+      <td>function</td>
+      <td>函参数为数组Array,[1，2，3]第几个事件恢复，默认为全部恢复。</td>
+    </tr>
+    <tr>
+      <td>anchor</td>
+      <td>bool</td>
+      <td>有锚点效果</td>
+    </tr>
+    <tr>
+      <td>refresh</td>
+      <td>function</td>
+      <td>重新加载数据</td>
+    </tr>
+  </tbody></table>
+<br/>
+<hr/>
+<h2>初始话高亮显示第几个</h2>
+<pre>
+YUI().use('radio',function(Y){
+	var oradio1 = new Y.Radio('#J_r1 li a',{
+		showindex:1
+	});
+})
+</pre>
+<div id="J_r1" class="kuan">
+	<ol class="inselector">
+		<li data-kuan="name1-20000">
+			<a>基本款</a>
+		</li>
+		<li data-kuan="name2-40000">
+			<a>标准款</a>
+		</li>
+		<li data-kuan="name1-20000">
+			<a>金款</a>
+		</li>
+		<li data-kuan="name1-20000">
+			<a>白金款</a>
+		</li>
+	</ol>
+</div>
+<br/>
+<br/>
+<hr/>
+<h2>扩展点击隐藏内容</h2>
+<pre>
+YUI().use('radio',function(Y){
+	var descnodes = Y.all('.kuan-desc li');
+	var radios = new  Y.Radio('#J_r2 li a',{
+		showindex:2,
+		onload:function(o){
+			descnodes.item(1).removeClass('hidden');
+		}
+	});
+	radios.on('change',function(e){
+		descnodes.addClass('hidden');
+		descnodes.item(e.index).removeClass('hidden');
+	});
+	Y.one('#d').on('click',function(){
+		radios.disable([1,2]);//失效1，2
+		descnodes.item(0).addClass('hidden');
+		descnodes.item(1).addClass('hidden');
+	});
+	Y.one('#u').on('click',function(){
+		radios.enable();
+	});
+})
+</pre>
+<div class="kuan" id="J_r2">
+	<ol class="inselector">
+		<li data-kuan="name1-20000">
+			<a>基本款</a>
+		</li>
+		<li data-kuan="name2-40000">
+			<a>标准款</a>
+		</li>
+		<li data-kuan="name1-20000">
+			<a>金款</a>
+		</li>
+		<li data-kuan="name1-20000">
+			<a>白金款</a>
+		</li>
+	</ol>
+	<ol class="kuan-desc">
+		<li class="hidden">被保险人确认罹患保险责任中的重大疾病，即可获得少儿重大疾病保险金10万元</li>
+		<li class="hidden">确认罹患保险责任中的重大疾病，即可获得少儿重大疾病保险金20万元</li>
+		<li class="hidden">险人确认罹患保险责任中的重大疾病，即可获得少儿重大疾病保险金10万元</li>
+		<li class="hidden">重大疾病保险金10万元</li>
+	</ol>
+</div>
+<br/>
+<button id="d">disable基本款与标准款</button><button id="u">enable</button>
+<hr/>
+<h2>设置全部不可用</h2>
+<pre>
+YUI().use('radio',function(Y){
+	var radioTwo = new Y.Radio('#J_r3 li a');
+	Y.one('#dt').on('click',function(){
+		radioTwo.disable();
+	});
+	Y.one('#ut').on('click',function(){
+		radioTwo.enable();
+	});
+})
+</pre>
+<div id="J_r3" class="kuan">
+	<ol class="inselector">
+		<li data-kuan="name1-20000">
+			<a>基本款</a>
+		</li>
+		<li data-kuan="name2-40000">
+			<a>标准款</a>
+		</li>
+		<li data-kuan="name1-20000">
+			<a>金款</a>
+		</li>
+		<li data-kuan="name1-20000">
+			<a>白金款</a>
+		</li>
+	</ol>
+</div>
+<br/>
+<br/>
+<br/>
+<button id="dt">disable</button><button id="ut">enable</button>
+<br/><hr>
+<h2>样式更换</h2>
+<div id="J_r4" class="kuan light clearfix">
+	<ol class="inselector kuan-s">
+		<li class="c1">
+		<a class="w50" href="#"><em></em></a>
+		</li>
+		<li data-kuan="name2-50000" class="c2">
+		<a class="w70" href="#"><em></em></a>
+		</li>
+		<li data-kuan="name3-60000" class="c3">
+		<a class="w88" href="#"><em></em></a>
+		</li>
+		<li data-kuan="name4-70000" class="c4">
+		<a class="w120" href="#"><em></em></a>
+		</li>
+		<li data-kuan="name5-80000" class="c5">
+		<a class="w129" href="#"><em></em></a>
+		</li>
+	</ol>
+</div>
+<br/><br/>
+</body>
+<script>
+YUI({
+    base:'http://a.tbcdn.cn/yui/3.0.0/build/',
+    charset:'gbk',
+	filter:{
+		'searchExp':'&',
+		'replaceStr':','
+	},
+	combine:true,
+	comboBase:'http://a.tbcdn.cn/??',
+    root:"yui/3.0.0/build/",
+	modules:{
+		'radio':{
+			fullpath:'radio.js',
+			requires:['node']
+		}
+	}
+}).use('radio',function(Y){
+	/**
+	*初始话高亮显示第几个
+	*/
+	var oradio1 = new Y.Radio('#J_r1 li a',{
+		showindex:1
+	});
+	/**
+	*扩展点击隐藏内容，初始话显示描述第一个，设置是否全部失效。
+	*/
+	var descnodes = Y.all('.kuan-desc li');
+	var radios = new  Y.Radio('#J_r2 li a',{
+		showindex:2,
+		onload:function(o){
+			descnodes.item(1).removeClass('hidden');
+		}
+	});
+	radios.on('change',function(e){
+		descnodes.addClass('hidden');
+		descnodes.item(e.index).removeClass('hidden');
+	});
+	Y.one('#d').on('click',function(){
+		radios.disable([1,2]);//失效1，2
+		descnodes.item(0).addClass('hidden');
+		descnodes.item(1).addClass('hidden');
+	});
+	Y.one('#u').on('click',function(){
+		radios.enable([2]);
+	});
+	/**
+	*设置是否全部失效。
+	*/
+	var radioTwo = new Y.Radio('#J_r3 li a');
+	Y.one('#dt').on('click',function(){
+		radioTwo.disable();
+	});
+	Y.one('#ut').on('click',function(){
+		radioTwo.enable();
+	});
+	/**
+	*样式更换
+	*/
+	var radioTree = new  Y.Radio('.kuan-s li a',{
+		showindex:1
+	});
+});
+</script>
+</html>
