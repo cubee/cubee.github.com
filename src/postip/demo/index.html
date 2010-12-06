@@ -8,11 +8,9 @@
 	<meta name="keywords" content="" />
 	<meta name="description" content="" />
 	<style type="text/css">
-
 html{color:#000;background:#fff}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:normal;font-weight:normal}li{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select,button,option{font-family:inherit;font-size:inherit;font-weight:inherit}input,textarea,select{*font-size:100%}legend{color:#000}q:before,q:after{content:''}
 	body{font:normal 12px/1.5 'Tahoma','simsun'} a{color:#07f;text-decoration:none;}a:hover{text-decoration:underline; }
 	.clearfix:after {content:".";display:block;height:0;clear:both;visibility:hidden}.clearfix{display:inline-block}/* Hides from IE-mac \*/* html .clearfix {height:1%}.clearfix {display:block}/* End hide from IE-mac */
-
 	body{width:900px;margin:10px auto;}
 	h1{font-size:24px;font-weight:700}
     #hd{padding-bottom:40px}
@@ -29,7 +27,7 @@ html{color:#000;background:#fff}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 	.tool-tip{width:276px;height:100px;background:url('img/tip_bg.gif') no-repeat;}
 	.tool-tip .content{width:228px;margin:0 auto;padding:12px 0;position:relative;}
 	.tool-tip .content span{width:13px;height:13px;display:block;cursor:pointer;position:absolute;right:-1px;top:-13px;}
-	.tip2popup{width:222px;height:103px;background:url('img/tip2bg.png') no-repeat;}
+	.tip2popup{width:222px;background:url('img/tip2bg.png') no-repeat;}
 	.tip2popup p{padding:20px;}
 
 	.tip3 {padding:30px;}
@@ -109,7 +107,7 @@ author:leyu@taobao.com（乐渔）
 			<div class="pos clearfix">
 				<button type="submit" class="btn" id="tip2">点击提交</button>
 			</div>
-			<div class="">a
+			<div class="">
 			</div>
 			<p>a</p>
 			<p><select name="">
@@ -118,6 +116,18 @@ author:leyu@taobao.com（乐渔）
 		</div>
 		
 		
+		<div class="tell">
+			<h3>3.弹出层高度自适应</h3>
+			<div class="pos clearfix">
+				<span rel="<p><img class='fl' src='img/exclamation-white.png'> 测试高度自适应自适应子适应自适应子适应自适应子适应自适应子适应自适应子适应自适应子适应应子适应自适应子适应自适应<br></p>" id="tiph">划过提交</span>
+			</div>
+			<div class="">
+			</div>
+			<p>a</p>
+			<p><select name="">
+				<option value="" selected="true">遮住我</option>
+			</select></p>
+		</div>
 		<div class="tell">
 			<h3>3.图片说明 imgtip</h3>
 			<ul class="clearfix tip3">
@@ -251,6 +261,8 @@ YUI({
 		
 		//例子2
 		var tip2 = new Y.Postip(Y.one('#tip2'),{pos:{v:'obottom',h:'center'},eventype:'click',mouseout:'false',content:'<div><p><img src="img/exclamation-white.png" class="fl"/> 请选择同意服务条款方可提交！<br/><button class="tip2close">关闭弹出层</button></p></div>',classname:'tip2popup'});
+		//弹出层自适应高度
+		var tiph = new Y.Postip(Y.one('#tiph'),{pos:{v:'obottom',h:'center'},classname:'tip2popup'});
 		
 		Y.one('#tip2').on('click',function(e){
 			e.halt();
@@ -274,10 +286,6 @@ YUI({
 		Y.one('.menu-bd').on('mouseout',function(){
 			Y.one('.menu-hd .more').removeClass('selected');
 		});
-
-		
-		
 	});
 </script>
-
 </html>
