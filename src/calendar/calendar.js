@@ -807,10 +807,12 @@ YUI.add('calendar', function (Y) {
 					if(e.target.hasClass('null'))return;
 					if(e.target.hasClass('disabled'))return;
 					var selectedd = Number(e.target.get('innerHTML'));
-					var d = new Date();
+					var d = new Date(cc.year+'/'+Number(cc.month+1)+'/'+selectedd);
+					/*
 					d.setYear(cc.year);
 					d.setMonth(cc.month);
 					d.setDate(selectedd);
+					*/
 					//that.callback(d);
 					//datetime的date
 					cc.fathor.dt_date = d;
