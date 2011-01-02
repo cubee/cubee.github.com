@@ -1,13 +1,12 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html lang="zh">
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="Keywords" content="Radio选择" />
-	<meta name="Description" content="Radio选择" />
-	<title>Radio选择</title>
-	<script type="text/javascript" src="http://cn.yimg.com/i/yui/3.0.0/build/yui/yui-min.js"></script>
-<link href="style.css" rel="stylesheet" type="text/css" />
-<style>
+<!DOCTYPE HTML>
+<HTML lang=zh><HEAD><TITLE>Radio选择</TITLE>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=Keywords content=Radio选择>
+<META name=Description content=Radio选择>
+<SCRIPT type=text/javascript 
+src="http://cn.yimg.com/i/yui/3.0.0/build/yui/yui-min.js"></SCRIPT>
+<LINK rel=stylesheet type=text/css href="style.css">
+<STYLE>
 /* radio */
 .inselector li{float:left;margin-right:6px;}
 .inselector li a{padding:8px;display:block;border:1px solid #acaba7;color:#000}
@@ -50,80 +49,54 @@
 .light .inselector li.c4 .selected:hover{background-position:-218px 7px}
 .light .inselector li.c5 .selected:hover{background-position:-336px 7px}
 
-</style>
-</head>
-<body>
-<h1>【YUI3组件】Radio点击高亮</h1>
-<br/>
-<table cellspacing="0" cellpadding="0" border="0" width="600" class="KS-table">
-    <tbody><tr>
-      <th>参数/方法：</th>
-      <th>类型</th>
-      <th>描述</th>
-    </tr>
-    <tr>
-      <td width="20%">showindex</td>
-      <td>int</td>
-      <td>初始话高亮哪个，默认不高亮</td>
-    </tr>
-    <tr>
-      <td>onload</td>
-      <td>function</td>
-      <td>加载时初始化函数，参数o为本身对象，可在初始化时不可用，如：o.disable()</td>
-    </tr>
-    <tr>
-      <td>disable</td>
-      <td>function</td>
-      <td>参数为数组Array,[1，2，3]第几个无效，默认为全部无效。</td>
-    </tr>
-    <tr>
-      <td>enable</td>
-      <td>function</td>
-      <td>函参数为数组Array,[1，2，3]第几个事件恢复，默认为全部恢复。</td>
-    </tr>
-    <tr>
-      <td>anchor</td>
-      <td>bool</td>
-      <td>有锚点效果</td>
-    </tr>
-    <tr>
-      <td>refresh</td>
-      <td>function</td>
-      <td>重新加载数据</td>
-    </tr>
-  </tbody></table>
-<br/>
-<hr/>
-<h2>初始话高亮显示第几个</h2>
-<pre>
+
+</STYLE>
+
+<META name=GENERATOR content="MSHTML 8.00.7600.16700"></HEAD>
+<BODY>
+<H1>【YUI3组件】Y.Radio()点击高亮；继承Radio的Y.Checkbox()</H1><BR>
+<PRE>
+/**
+ * radio.js 点击高亮控件
+ * author:lover_116@163.com 灵玉
+ * @class Y.Radio
+ * @param {string} 容器或者触点selector 
+ * @param {object} 配置项
+ * @return {object} 生成一个radio实例
+ * @requires {'node'}
+ * 
+ * Y.Radio：	
+ *	说明：	radio构造器，通过new Y.Radio来render一个radio
+ *	使用：	new Y.Radio(selector,config)
+ *	参数:	selector:{string}容器选择器，获取多个node
+ *	配置：	showindex {num} 默认显示所引
+ *		onload:{function} 初始化扩展操作
+ *		disable:{function} 触发事件，不可点击，参数为Array,[1,2,3]不可点击的所引，默认全部不可点击
+ *		enable:{function} 恢复可点击，参数为Array,[1,2,3]恢复点击，默认全部可点
+ *		range:{start:date,end:date} 默认选择范围
+ *		refresh:{function} 重新加载
+ *
+ * Y.Checkbox：	
+ *	说明：	继承Y.Radio，实现复选框功能
+ *	使用：	new Y.Checkbox(selector,config)
+ * 		changeEvent:{mether} 重写Y.Radio的change事件
+ */
+</PRE>
+<H2>初始话高亮显示第几个</H2><PRE>
 YUI().use('radio',function(Y){
-	var oradio1 = new Y.Radio('#J_r1 li a',{
+	var oradio1 = new Y.Checkbox('#J_r1',{
 		showindex:1
 	});
 })
-</pre>
-<div id="J_r1" class="kuan">
-	<ol class="inselector">
-		<li data-kuan="name1-20000">
-			<a>基本款</a>
-		</li>
-		<li data-kuan="name2-40000">
-			<a>标准款</a>
-		</li>
-		<li data-kuan="name1-20000">
-			<a>金款</a>
-		</li>
-		<li data-kuan="name1-20000">
-			<a>白金款</a>
-		</li>
-	</ol>
-</div>
-<br/>
-<br/>
-<hr/>
-<h2>扩展点击隐藏内容</h2>
-<pre>
-YUI().use('radio',function(Y){
+</PRE>
+<DIV id=J_r1 class=kuan>
+<OL class=inselector>
+  <LI data-kuan="name1-20000"><A>基本款</A> </LI>
+  <LI data-kuan="name2-40000"><A>标准款</A> </LI>
+  <LI data-kuan="name1-20000"><A>金款</A> </LI>
+  <LI data-kuan="name1-20000"><A>白金款</A> </LI></OL></DIV><BR><BR>
+
+<H2>扩展点击隐藏内容</H2><PRE>YUI().use('radio',function(Y){
 	var descnodes = Y.all('.kuan-desc li');
 	var radios = new  Y.Radio('#J_r2 li a',{
 		showindex:2,
@@ -144,88 +117,49 @@ YUI().use('radio',function(Y){
 		radios.enable();
 	});
 })
-</pre>
-<div class="kuan" id="J_r2">
-	<ol class="inselector">
-		<li data-kuan="name1-20000">
-			<a>基本款</a>
-		</li>
-		<li data-kuan="name2-40000">
-			<a>标准款</a>
-		</li>
-		<li data-kuan="name1-20000">
-			<a>金款</a>
-		</li>
-		<li data-kuan="name1-20000">
-			<a>白金款</a>
-		</li>
-	</ol>
-	<ol class="kuan-desc">
-		<li class="hidden">被保险人确认罹患保险责任中的重大疾病，即可获得少儿重大疾病保险金10万元</li>
-		<li class="hidden">确认罹患保险责任中的重大疾病，即可获得少儿重大疾病保险金20万元</li>
-		<li class="hidden">险人确认罹患保险责任中的重大疾病，即可获得少儿重大疾病保险金10万元</li>
-		<li class="hidden">重大疾病保险金10万元</li>
-	</ol>
-</div>
-<br/>
-<button id="d">disable基本款与标准款</button><button id="u">enable</button>
-<hr/>
-<h2>设置全部不可用</h2>
-<pre>
+</PRE>
+<DIV id=J_r2 class=kuan>
+<OL class=inselector>
+  <LI data-kuan="name1-20000"><A>基本款</A> </LI>
+  <LI data-kuan="name2-40000"><A>标准款</A> </LI>
+  <LI data-kuan="name1-20000"><A>金款</A> </LI>
+  <LI data-kuan="name1-20000"><A>白金款</A> </LI></OL>
+<OL class=kuan-desc>
+  <LI class=hidden>被保险人确认罹患保险责任中的重大疾病，即可获得少儿重大疾病保险金10万元</LI>
+  <LI class=hidden>确认罹患保险责任中的重大疾病，即可获得少儿重大疾病保险金20万元</LI>
+  <LI class=hidden>险人确认罹患保险责任中的重大疾病，即可获得少儿重大疾病保险金10万元</LI>
+  <LI class=hidden>重大疾病保险金10万元</LI></OL></DIV><BR><BUTTON id=d 
+type=submit>disable基本款与标准款</BUTTON><BUTTON id=u type=submit>enable</BUTTON> 
+
+<H2>Y.Checkbox,继承Radio的checkbox。默认全部失效</H2><PRE>
 YUI().use('radio',function(Y){
-	var radioTwo = new Y.Radio('#J_r3 li a');
+	var radioTwo = new Y.Checkbox('#J_r3');
 	Y.one('#dt').on('click',function(){
 		radioTwo.disable();
 	});
 	Y.one('#ut').on('click',function(){
 		radioTwo.enable();
-	});
+	})
 })
-</pre>
-<div id="J_r3" class="kuan">
-	<ol class="inselector">
-		<li data-kuan="name1-20000">
-			<a>基本款</a>
-		</li>
-		<li data-kuan="name2-40000">
-			<a>标准款</a>
-		</li>
-		<li data-kuan="name1-20000">
-			<a>金款</a>
-		</li>
-		<li data-kuan="name1-20000">
-			<a>白金款</a>
-		</li>
-	</ol>
-</div>
-<br/>
-<br/>
-<br/>
-<button id="dt">disable</button><button id="ut">enable</button>
-<br/><hr>
-<h2>样式更换</h2>
-<div id="J_r4" class="kuan light clearfix">
-	<ol class="inselector kuan-s">
-		<li class="c1">
-		<a class="w50" href="#"><em></em></a>
-		</li>
-		<li data-kuan="name2-50000" class="c2">
-		<a class="w70" href="#"><em></em></a>
-		</li>
-		<li data-kuan="name3-60000" class="c3">
-		<a class="w88" href="#"><em></em></a>
-		</li>
-		<li data-kuan="name4-70000" class="c4">
-		<a class="w120" href="#"><em></em></a>
-		</li>
-		<li data-kuan="name5-80000" class="c5">
-		<a class="w129" href="#"><em></em></a>
-		</li>
-	</ol>
-</div>
-<br/><br/>
-</body>
-<script>
+</PRE>
+<DIV id=J_r3 class=kuan>
+<OL class=inselector>
+  <LI data-kuan="name1-20000"><A>基本款</A> </LI>
+  <LI data-kuan="name2-40000"><A>标准款</A> </LI>
+  <LI data-kuan="name1-20000"><A>金款</A> </LI>
+  <LI data-kuan="name1-20000"><A>白金款</A> </LI></OL></DIV><BR><BR><BR><BUTTON id=dt 
+type=submit>disable</BUTTON><BUTTON id=ut type=submit>enable</BUTTON> <BR>
+
+<H2>复杂的HTML结构</H2>
+<p><img src="radio4.jpg"/></p>
+<DIV id=J_r4 class="kuan light clearfix">
+<OL class="inselector kuan-s">
+  <LI class=c1><A class=w50 href="#"><EM></EM></A></LI>
+  <LI class=c2 data-kuan="name2-50000"><A class=w70 href="#"><EM></EM></A></LI>
+  <LI class=c3 data-kuan="name3-60000"><A class=w88 href="#"><EM></EM></A></LI>
+  <LI class=c4 data-kuan="name4-70000"><A class=w120 href="#"><EM></EM></A></LI>
+  <LI class=c5 data-kuan="name5-80000"><A class=w129 href="#"><EM></EM></A></LI></OL></DIV><BR><BR>
+<SCRIPT>
 YUI({
     base:'http://a.tbcdn.cn/yui/3.0.0/build/',
     charset:'gbk',
@@ -246,14 +180,14 @@ YUI({
 	/**
 	*初始话高亮显示第几个
 	*/
-	var oradio1 = new Y.Radio('#J_r1 li a',{
+	var oradio1 = new Y.Radio('#J_r1',{
 		showindex:1
 	});
 	/**
 	*扩展点击隐藏内容，初始话显示描述第一个，设置是否全部失效。
 	*/
 	var descnodes = Y.all('.kuan-desc li');
-	var radios = new  Y.Radio('#J_r2 li a',{
+	var radios = new  Y.Radio('#J_r2',{
 		showindex:2,
 		onload:function(o){
 			descnodes.item(1).removeClass('hidden');
@@ -274,7 +208,7 @@ YUI({
 	/**
 	*设置是否全部失效。
 	*/
-	var radioTwo = new Y.Radio('#J_r3 li a');
+	var radioTwo = new Y.Checkbox('#J_r3');
 	Y.one('#dt').on('click',function(){
 		radioTwo.disable();
 	});
@@ -284,9 +218,9 @@ YUI({
 	/**
 	*样式更换
 	*/
-	var radioTree = new  Y.Radio('.kuan-s li a',{
+	var radioTree = new  Y.Radio('#J_r4',{
 		showindex:1
 	});
 });
-</script>
-</html>
+</SCRIPT>
+</BODY></HTML>
