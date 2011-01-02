@@ -1,24 +1,26 @@
 /**
- * radio.js ç‚¹å‡»é«˜äº®æ§ä»¶
- * author:lover_116@163.com çµç‰
+ * radio.js µã»÷¸ßÁÁ¿Ø¼ş
+ * author:lover_116@163.com ÁéÓñ
  * @class Y.Radio
- * @param {string} å®¹å™¨æˆ–è€…è§¦ç‚¹selector 
- * @param {object} é…ç½®é¡¹
- * @return {object} ç”Ÿæˆä¸€ä¸ªradioå®ä¾‹
+ * @param {string} ÈİÆ÷»òÕß´¥µãselector 
+ * @param {object} ÅäÖÃÏî
+ * @return {object} Éú³ÉÒ»¸öradioÊµÀı
  * @requires {'node'}
  * 
- * Y.Radioï¼š	
- *	è¯´æ˜ï¼š	radioæ„é€ å™¨ï¼Œé€šè¿‡new Y.Radioæ¥renderä¸€ä¸ªradio
- *	ä½¿ç”¨ï¼š	new Y.Radio(selector,config)
- *	å‚æ•°:	selector:{string}å®¹å™¨é€‰æ‹©å™¨ï¼Œè·å–å¤šä¸ªnode
- *	é…ç½®ï¼š	showindex {num} é»˜è®¤æ˜¾ç¤ºæ‰€å¼•
- *			onload:{function} åˆå§‹åŒ–æ‰©å±•æ“ä½œ
- *			disable:{function} è§¦å‘äº‹ä»¶ï¼Œä¸å¯ç‚¹å‡»ï¼Œå‚æ•°ä¸ºArray,[1,2,3]ä¸å¯ç‚¹å‡»çš„æ‰€å¼•ï¼Œé»˜è®¤å…¨éƒ¨ä¸å¯ç‚¹å‡»
- *			enable:{function} æ¢å¤å¯ç‚¹å‡»ï¼Œå‚æ•°ä¸ºArray,[1,2,3]æ¢å¤ç‚¹å‡»ï¼Œé»˜è®¤å…¨éƒ¨å¯ç‚¹
- *			closeable:{boolean} æ˜¯å¦å•é€‰å…³é—­ï¼ˆå¼¹å‡ºçŠ¶æ€ä¸‹èµ·ä½œç”¨ï¼‰ï¼Œé»˜è®¤ä¸ºfalse
- *			anchor:{boolean}æ˜¯å¦æœ‰é”šç‚¹æ•ˆæœï¼Œå»æ‰e.halt()
- *			range:{start:date,end:date} é»˜è®¤é€‰æ‹©èŒƒå›´
- *			refresh:{function} é‡æ–°åŠ è½½
+ * Y.Radio£º	
+ *	ËµÃ÷£º	radio¹¹ÔìÆ÷£¬Í¨¹ınew Y.RadioÀ´renderÒ»¸öradio
+ *	Ê¹ÓÃ£º	new Y.Radio(selector,config)
+ *	²ÎÊı:	selector:{string}ÈİÆ÷Ñ¡ÔñÆ÷£¬»ñÈ¡¶à¸önode
+ *	ÅäÖÃ£º	showindex {num} Ä¬ÈÏÏÔÊ¾ËùÒı
+ *		onload:{function} ³õÊ¼»¯À©Õ¹²Ù×÷
+ *		disable:{function} ´¥·¢ÊÂ¼ş£¬²»¿Éµã»÷£¬²ÎÊıÎªArray,[1,2,3]²»¿Éµã»÷µÄËùÒı£¬Ä¬ÈÏÈ«²¿²»¿Éµã»÷
+ *		enable:{function} »Ö¸´¿Éµã»÷£¬²ÎÊıÎªArray,[1,2,3]»Ö¸´µã»÷£¬Ä¬ÈÏÈ«²¿¿Éµã
+ *		refresh:{function} ÖØĞÂ¼ÓÔØ
+ *
+ * Y.Checkbox£º	
+ *	ËµÃ÷£º	¼Ì³ĞY.Radio£¬ÊµÏÖ¸´Ñ¡¿ò¹¦ÄÜ
+ *	Ê¹ÓÃ£º	new Y.Checkbox(selector,config)
+ * 		changeEvent:{mether} ÖØĞ´Y.RadioµÄchangeÊÂ¼ş
  */
 YUI.namespace('Y.Radio');
 YUI.add('radio',function(Y){
@@ -27,18 +29,19 @@ YUI.add('radio',function(Y){
 	};
 	Y.Radio.prototype = {
 		/**
-		 * åˆå§‹åŒ–
-		 * @param {selector}å®¹å™¨é€‰æ‹©å™¨
-		 * @param {config}åˆå§‹é…ç½®
+		 * ³õÊ¼»¯
+		 * @param {selector}ÈİÆ÷Ñ¡ÔñÆ÷
+		 * @param {config}³õÊ¼ÅäÖÃ
 		 */
 		init:function(selector,config){
-			this.nodes = Y.one(selector).get('tagName') == 'A'?Y.all(selector):Y.all(selector).get('parentNode');
+			if(!(this.con = Y.one(selector))) return;
+			this.nodes = this.con.all('a');
 			this.buildEventCenter();
 			this.bind();
 			this.buildParam(config);
 		},
 		/**
-		 * äº‹ä»¶ä¸­å¿ƒ å¢åŠ è‡ªå®šä¹‰changeäº‹ä»¶
+		 * ÊÂ¼şÖĞĞÄ Ôö¼Ó×Ô¶¨ÒåchangeÊÂ¼ş
 		 * @return {object}
 		 */
 		buildEventCenter:function(){
@@ -51,36 +54,24 @@ YUI.add('radio',function(Y){
 			return this;
 		},
 		/**
-		 * ç»‘å®šclickäº‹ä»¶å‡½æ•°
+		 * °ó¶¨clickÊÂ¼şº¯Êı
 		 * @mether bind 
-		 * @param {node} object nodeå¯¹è±¡
+		 * @param {node} object node¶ÔÏó
 		 * @default {null} this.nodes
 		 */
-		bind:function(node){
+		bind:function(){
 			var that = this;
-			if(typeof node === 'undefined' || node === null){
-				this.nodes.on('click',function(e){
-					if(!that.anchor){
-						e.halt();
-					}
-					that.changeEvent(e);
-				});
-			}
-			else{
-				node.on('click',function(e){
-					if(!that.anchor){
-						e.halt();
-					}
-					that.changeEvent(e);
-				});
-			}
+			Y.delegate('click',function(e){
+				e.halt();
+				that.changeEvent(e.target);
+			},that.con,'a');
 		},
 		/**
-		 * ç»‘å®šäº‹ä»¶å‡½æ•°
+		 * °ó¶¨ÊÂ¼şº¯Êı
 		 * @mether on 
 		 * @type event 
-		 * @param {type} string è‡ªå®šä¹‰æ—¶é—´å
-		 * @param {foo} function å®ç°æ–¹æ³•
+		 * @param {type} string ×Ô¶¨ÒåÊ±¼äÃû
+		 * @param {foo} function ÊµÏÖ·½·¨
 		 */
 		on:function(type,foo){
 			var that = this;
@@ -89,22 +80,20 @@ YUI.add('radio',function(Y){
 		},
 		/**
 		 * @mether changeEvent
-		 * changeäº‹ä»¶çš„å…·ä½“å®ç°
-		 * @param {e} å½“å‰è§¦å‘node
+		 * changeÊÂ¼şµÄ¾ßÌåÊµÏÖ
+		 * @param {e} µ±Ç°´¥·¢node
 		 */
-		changeEvent : function(e){
-			var isA = e.target.get('tagName') == 'A'?true:false;
-			var _n = isA?e.target:e.target.get('parentNode');
-			var _i = this.nodes.indexOf(_n);
+		changeEvent : function(node){
+			var _i = this.nodes.indexOf(node);
 			this.nodes.removeClass('selected');
-			_n.addClass('selected');
-			//ä¼ é€’changeäº‹ä»¶çš„å‚æ•°
+			node.addClass('selected');
+			//´«µİchangeÊÂ¼şµÄ²ÎÊı
 			this.EventCenter.fire('change',{index:_i,show:"no"});
 		},
 		/**
 		 * @attribute defaultShow
 		 * @type num
-		 * @param {i} æ˜¾ç¤ºæ‰€å¼•ä»1å¼€å§‹
+		 * @param {i} ÏÔÊ¾ËùÒı´Ó1¿ªÊ¼
 		 * @default null
 		 */
 		defaultShow : function(i){
@@ -113,47 +102,50 @@ YUI.add('radio',function(Y){
 			return this;
 		},
 		/**
-		 * å¤±æ•ˆäº‹ä»¶å®ç°
+		 * Ê§Ğ§ÊÂ¼şÊµÏÖ
 		 * @mether disable 
 		 * @type function
-		 * @param {param} array èŠ‚ç‚¹ç´¢å¼•
-		 * @default null,æ‰€æœ‰èŠ‚ç‚¹å¤±æ•ˆ
+		 * @param {param} array ½ÚµãË÷Òı
+		 * @default null,ËùÓĞ½ÚµãÊ§Ğ§
 		 */
 		disable : function(param){
-			if(typeof param === 'undefined' || param === null){
-				this.nodes.detach('click');
+			if(!param){
 				this.nodes.removeClass('selected').addClass('nohover');
+				this.nodes.on('click',function(e){e.halt()});
 			}
 			else{
 				for(var i=0;i<param.length;i++){
 					this.nodes.item(param[i]-1).removeClass('selected').addClass('nohover');
+					//×èÖ¹ÊÂ¼şÃ°Åİ
+					this.nodes.item(param[i]-1).on('click',function(e){e.halt()});
+				}
+			}
+			return this;
+		},
+		/**
+		 * »Ö¸´ÊÂ¼şÊµÏÖ
+		 * @mether enable 
+		 * @type function
+		 * @param {param} array ½ÚµãË÷Òı
+		 * @default null,ËùÓĞ½Úµã»Ö¸´
+		 */
+		enable : function(param){
+			if(!param){
+				this.nodes.removeClass('nohover');
+				//ÒÆ³öËùÓĞÊÂ¼ş£¬»Ö¸´ÊÂ¼şÃ°Åİ
+				this.nodes.detach('click');
+			}
+			else{
+				for(var i=0;i<param.length;i++){
+					this.nodes.item(param[i]-1).removeClass('nohover');
+					//ÒÆ³öÖ¸¶¨Ë÷ÒıµÄnodeÊÂ¼ş£¬»Ö¸´ÊÂ¼şÃ°Åİ
 					this.nodes.item(param[i]-1).detach('click');
 				}
 			}
 			return this;
 		},
 		/**
-		 * æ¢å¤äº‹ä»¶å®ç°
-		 * @mether enable 
-		 * @type function
-		 * @param {param} array èŠ‚ç‚¹ç´¢å¼•
-		 * @default null,æ‰€æœ‰èŠ‚ç‚¹æ¢å¤
-		 */
-		enable : function(param){
-			if(typeof param === 'undefined' || param === null){
-				this.bind();
-				this.nodes.removeClass('nohover');
-			}
-			else{
-				for(var i=0;i<param.length;i++){
-					this.nodes.item(param[i]-1).removeClass('nohover');
-					this.bind(this.nodes.item(param[i]-1));
-				}
-			}
-			return this;
-		},
-		/**
-		 * é‡æ–°åŠ è½½ 
+		 * ÖØĞÂ¼ÓÔØ 
 		 * @mether refresh 
 		 * @type function
 		 */
@@ -163,18 +155,34 @@ YUI.add('radio',function(Y){
 			return this;
 		},
 		/**
-		 * å‚æ•°æ„é€  
+		 * ²ÎÊı¹¹Ôì 
 		 * @mether buildParam 
 		 * @type function
-		 * @param {e} object æ„é€ å‚æ•°
+		 * @param {o} object ¹¹Ôì²ÎÊı
+		 * o.onload() ¹¹Ôì×Ô¶¨Òå³õÊ¼º¯Êı
+		 * defaultShow() ¹¹Ôì×Ô¶¨ÒåÄ¬ÈÏÖµ
 		 */
 		buildParam : function(o){
-			if(typeof o === 'undefined' || o === null){
-				o = {};
-			}
+			var o = o?o:{};
 			if(typeof o.onload !== 'undefined' && o.onload !== null){o.onload(this);}
 			if(typeof o.showindex !== 'undefined' && o.showindex !== null){this.defaultShow(o.showindex);}
-			if(typeof o.anchor !== 'undefined' && o.anchor !== null){this.anchor = o.anchor;}
 		}
 	};
-},'3.0.0',{requires:['node']});
+	/**
+     	 * Y.Checkbox ¼Ì³ĞY.Radio£¬ÊµÏÖ¸´Ñ¡¿ò¹¦ÄÜ 
+	 * @mether changeEvent ÖØĞ´Y.RadioµÄchangeÊÂ¼ş
+	 * @param {node} µ±Ç°´¥·¢µÄnode 
+	 */
+	Y.namespace('Y.Checkbox');	
+	Y.Checkbox = function() {
+		Y.Checkbox.superclass.constructor.apply(this,arguments);
+	};
+	Y.extend(Y.Checkbox,Y.Radio);
+	Y.Checkbox.prototype.changeEvent = function(node){
+		var _i = this.nodes.indexOf(node);
+		//Ñ¡ÖĞ»òÈ¡Ïû
+		node.toggleClass('selected');
+		//´«µİchangeÊÂ¼şµÄ²ÎÊı
+		this.EventCenter.fire('change',{index:_i,show:"no"});
+	}
+},'',{requires:['node']});
