@@ -16,7 +16,6 @@ h6{font-size:12px}
 body{margin:0 10px}
 q:before,q:after{content:''}
 abbr,acronym{border:0}
-hr {margin: 0;padding: 0;border: 0;color: #CDCDCD;background-color: #CDCDCD;height: 1px}
 blockquote{color:#666;font-style:italic;}
 sup,sub{line-height:0}
 abbr,acronym{border-bottom:1px dotted #666}
@@ -28,7 +27,7 @@ a{font-size:12px;cursor:pointer}
 a:link,a:visited{color:#FFFFFF; text-decoration:none; font-size:12px}
 a:hover{text-decoration:none;}
 h1{padding:10px; background-color:#333; color:#EFEFEF; }
-h2{ margin-top:20px; padding:10px}
+h2{margin:10px 0px;padding:10px;border-top:3px #333 solid}
 pre{ padding:10px }
 .table-box{ padding:10px}
 table.KS-table{border-top: none;border-right:none;border-bottom: 1px solid #6790ad;border-left: 1px solid #6790ad;}
