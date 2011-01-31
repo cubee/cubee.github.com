@@ -23,6 +23,7 @@
  *			withtime:{boolean} 日历是否显示time选择，默认为false
  *			date:{date} 默认显示该日期所在的月份，默认为当天
  *			navigator:{boolean} 是否可以选择跳转的月份，默认为true
+ 			useShim:{boolean} 是否使用iframe遮罩,ie6默认加遮罩
  *		Y.Calendar的实例的方法：
  *			init:初始化，参数为options
  *			render:渲染，init在new的时候调用，render可以在运行时任意时刻调用，参数为options，其成员可覆盖原参数
@@ -62,8 +63,14 @@ YUI.add('calendar', function (Y) {
 				*/
 				that.con.setStyle('top','0px');
 				that.con.setStyle('position','absolute');
+				that.con.setStyle('zIndex','1000');
 				that.con.setStyle('background','white');
 				that.con.setStyle('visibility','hidden');
+				if(that.useShim){
+					that.shim = Y.Node.create('<iframe border="0" frameborder="0" noscroll="yes" width="'+ that.multi_page * 191 +'px" height="193" class="calendar-iframe"></iframe>');
+					that.shim.setStyle('position','absolute');
+					that.con.insert(that.shim, 'before');
+				}
 			}
 			that.buildEventCenter();
 			that.render();
@@ -224,10 +231,17 @@ YUI.add('calendar', function (Y) {
 		show:function(){
 			var that = this;
 			that.con.setStyle('visibility','');
+			if(that.useShim && that.popup){
+				that.shim.setStyle('visibility','');
+			}
 			var _x = that.trigger.getXY()[0];
 			var _y = that.trigger.getXY()[1]+that.trigger.get('region').height;
 			that.con.setStyle('left',_x.toString()+'px');
 			that.con.setStyle('top',_y.toString()+'px');
+			if(that.useShim && that.popup){
+				that.shim.setStyle('left',_x.toString()+'px');
+				that.shim.setStyle('top',_y.toString()+'px');
+			}
 			return this;
 		},
 		/**
@@ -236,6 +250,9 @@ YUI.add('calendar', function (Y) {
 		hide:function(){
 			var that = this;
 			that.con.setStyle('visibility','hidden');
+			if(that.useShim && that.popup){
+				that.shim.setStyle('visibility','hidden');
+			}
 			return this;
 		},
 		/**
@@ -260,6 +277,15 @@ YUI.add('calendar', function (Y) {
 			that.popup = (typeof o.popup == 'undefined' || o.popup== null)?false:o.popup;
 			that.withtime = (typeof o.withtime == 'undefined' || o.withtime == null)?false:o.withtime;
 			that.action = (typeof o.action == 'undefined' || o.action == null)?['click']:o.action;
+			if(typeof o.useShim !== 'undefined' && o.useShim === true){
+				that.useShim = true;	
+			}else if(typeof o.useShim !== 'undefined' && o.useShim === false){
+				that.useShim = false;	
+			}else if(Y.UA.ie === 6){
+				that.useShim = true;	
+			}else{
+				that.useShim = false;
+			}
 			if(typeof o.range != 'undefined' && o.range != null){
 				var s = that.showdate(1,new Date(o.range.start.getFullYear()+'/'+(o.range.start.getMonth()+1)+'/'+(o.range.start.getDate())));
 				var e = that.showdate(1,new Date(o.range.end.getFullYear()+'/'+(o.range.end.getMonth()+1)+'/'+(o.range.end.getDate())));
@@ -354,7 +380,7 @@ YUI.add('calendar', function (Y) {
 			}else{
 				that.month++;
 			}
-			that.date = new Date(that.year.toString()+'/'+(that.month+1).toString()+'/'+that.day.toString());
+			that.date = new Date(that.year.toString()+'/'+(that.month+1).toString()+'/1');
 			return this;
 		},
 		//月减
@@ -366,7 +392,7 @@ YUI.add('calendar', function (Y) {
 			}else{
 				that.month--;
 			}
-			that.date = new Date(that.year.toString()+'/'+(that.month+1).toString()+'/'+that.day.toString());
+			that.date = new Date(that.year.toString()+'/'+(that.month+1).toString()+'/1');
 			return this;
 		},
 		//裸算下一个月的年月,[2009,11],年:fullYear，月:从0开始计数
@@ -839,10 +865,10 @@ YUI.add('calendar', function (Y) {
 				});
 				if(cc.fathor.navigator){
 					cc.EV[3] = con.query('a.title').on('click',function(e){
+						e.halt();
 						try{
 							cc.timmer.hidePopup();
 						}catch(e){}
-						e.halt();	
 						var setime_node = con.query('.setime');
 						setime_node.set('innerHTML','');
 						var in_str = cc.fathor.templetShow(cc.nav_html,{
@@ -852,8 +878,8 @@ YUI.add('calendar', function (Y) {
 						setime_node.set('innerHTML',in_str);
 						setime_node.removeClass('hidden');
 						con.query('input').on('keydown',function(e){
-							var _month = con.query('.setime').query('select').get('value');
-							var _year  = con.query('.setime').query('input').get('value');
+							var _month = con.one('.setime select').get('value');
+							var _year  = con.one('.setime input').get('value');
 							if(e.keyCode == 38){//up
 								if (!cc.Verify().isYear(_year))return;
                                 if (!cc.Verify().isMonth(_month))return;
