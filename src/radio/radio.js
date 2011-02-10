@@ -1,5 +1,6 @@
 /**
  * radio.js 点击高亮控件
+ *
  * author:lover_116@163.com 灵玉
  * @class Y.Radio
  * @param {string} 容器或者触点selector 
